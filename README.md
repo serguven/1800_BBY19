@@ -8,6 +8,7 @@
 This browser based web application to ...
 * Hi my name is Phuong. I'm feeling good about this project because the theme is practical.
 * Hi this is Gabriel Clarin.
+* My name is Semih.
 	
 ## Technologies
 Technologies used for this project:
