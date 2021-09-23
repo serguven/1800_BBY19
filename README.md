@@ -6,8 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Gabriel. I'm excited about this project because it seems fun.
-* My name is Semih.
+* Hi my name is Phuong. I'm feeling good about this project because the theme is practical.
 	
 ## Technologies
 Technologies used for this project:
