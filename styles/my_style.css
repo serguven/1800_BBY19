@@ -1,1 +1,432 @@
+body {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 40px;
+}
 
+#navbarSupportedContent {
+    justify-content: space-between;
+}
+
+.nav-item {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.d-flex {
+    justify-content: space-between;
+}
+
+.btn-primary {
+    margin-left: 5px;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text,
+#motivational-quotes,
+#btn-more-quotes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+}
+
+.popover__title {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .55);
+    text-align: center;
+    padding: 0;
+}
+
+.popover__wrapper {
+    position: relative;
+    margin-top: 0.2rem;
+    display: inline-block;
+}
+
+.popover__content {
+    opacity: 80%;
+    visibility: hidden;
+    position: absolute;
+    left: -150px;
+    transform: translate(0, 10px);
+    background-color: #f3f1df;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.322);
+    width: auto;
+}
+
+.popover__content:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    right: calc(50% - 10px);
+    top: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #bfbfbf transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 10;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover__message {
+    text-align: center;
+}
+
+
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: rgb(252, 186, 3);
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: rgb(252, 186, 3);
+    color: white !important
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+section {
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+.sample {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.card {
+    margin: 50px 200px auto;
+}
+
+.container-fluid {
+    font-size: 60%;
+}
+
+
+/*------------------------------------------------------*/
+#heading {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#profile-picture {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    margin-left: 50%;
+    margin-top: 150px;
+    margin-right: auto;
+    margin-bottom: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+#file {
+    display: none;
+}
+
+#uploadBtn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#wrapper-enter-personal-data {
+    background-color: whitesmoke;
+    list-style-type: none;
+    padding: 50px;
+    border-radius: 3px;
+    font-size: 25px;
+    margin: 300px 15% auto;
+    margin-top: -150px;
+}
+
+#wrapper-create-your-program {
+    background-color: whitesmoke;
+    list-style-type: none;
+    padding: 50px;
+    border-radius: 3px;
+    font-size: 25px;
+    margin: 300px 15% auto;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+}
+
+.form-row>label {
+    padding: .5em 1em .5em 0;
+    flex: 1;
+}
+
+.form-row>input {
+    flex: 0.65;
+    padding: .5em;
+}
+
+.form-row>select {
+    flex: 0.7;
+}
+
+.form-row>.input-group {
+    flex: 0.7;
+}
+
+.form-row-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.form-row-btn>button {
+    color: white;
+    border: 0;
+    margin-top: 50px;
+    padding: .5em;
+    border-radius: 10px;
+}
+
+.form-row-btn>button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.form-row-btn>button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+        inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.dropdown-check-list {
+    display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+    right: 8px;
+    top: 21%;
+}
+
+.dropdown-check-list ul.items {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.dropdown-check-list ul.items li {
+    list-style: none;
+}
+
+.dropdown-check-list.visible .anchor {
+    color: #0094ff;
+}
+
+.dropdown-check-list.visible .items {
+    display: block;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+
+    .weekdays li,
+    .days li {
+        width: 13.1%;
+    }
+
+    .form-row>label {
+        flex: 1;
+    }
+
+    .form-row>input {
+        flex: 0.5;
+    }
+
+    .form-row>select {
+        flex: 1;
+    }
+
+    .form-row>.input-group {
+        flex: 1/2;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .weekdays li,
+    .days li {
+        width: 12.5%;
+    }
+
+    .days li .active {
+        padding: 2px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+
+    .weekdays li,
+    .days li {
+        width: 12.2%;
+    }
+}
