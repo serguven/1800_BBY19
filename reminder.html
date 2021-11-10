@@ -16,6 +16,10 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   
   <!-- Link to the API keys for Excelsior Firebase -->
   <script src="scripts/firebaseAPI.js"></script>
@@ -154,18 +158,26 @@
   </nav>
 
   <section>
-    <div class="reminder-fillin">
-      <div id="title">
+    <form>
+      <div id="roar">
         <h1>Let's Start Your New Habits With A Goal Name!</h1>
       </div>
       <div id="nameOfGoal">
         <p>Goal Name: </p>
-        <input type="text" class="form-control" placeholder="Goal Name" aria-label="Username"
+        <input type="text" id="title" placeholder="Goal Name" aria-label="Username"
           aria-describedby="basic-addon1">
       </div>
       <div id="reminderCalendar">
         <p>Reminder Date:</p>
-        <img src="images/Calendar.png" alt="calendar-placeholder" widt="100px" height="auto">
+        <input type="text" id="reminder-month" placeholder="Month" aria-label="Username"
+          aria-describedby="basic-addon1">
+          <input type="text" id="remind-day" placeholder="Day" aria-label="Username"
+          aria-describedby="basic-addon1">
+          <input type="text" id="reminder-year" placeholder="Year" aria-label="Username"
+          aria-describedby="basic-addon1">
+          <br> <br>
+          <input type="text" id="reminder-time" placeholder="Time" aria-label="Username"
+          aria-describedby="basic-addon1">
       </div>
       <div id="ringtoneVolume">
         <p>Ringtone Volume: </p>
@@ -175,12 +187,40 @@
         </div>
       </div>
       <div id="finished">
-        <button type="button" class="btn btn-warning btn-lg">FINISHED</button>
+        <button type="button" class="btn btn-warning btn-lg" onclick="createReminder()">FINISHED</button>
       </div>
-    </div>
+    </form>
   </section>
 
   <script>
+    function createReminder() {
+        let Title = document.getElementById("title").value;
+        let Date = document.getElementById("remind-day").value;
+        let Time = document.getElementById("reminder-time").value;
+        
+        firebase.auth().onAuthStateChanged(user => {
+          if(user) {
+            var currentUser = db.collection("users").doc(user.uid)
+            var userID = user.uid;
+            
+            currentUser.get()
+              .then(userDoc => {
+                var userEmail = userDoc.data().email;
+
+                db.collection("reminders").add({
+                  UserId: userID,
+                  UserEmail: userEmail,
+                  Date: Date,
+                  Description: Title,
+                  Time: Time
+                });
+              })
+          } else {
+            console.log("no user signed in.");
+          }
+        });
+    }
+    
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
     output.innerHTML = slider.value;
@@ -189,15 +229,6 @@
       output.innerHTML = this.value + "%";
     }
 
-
-    function createReminder() {
-      firebase.auth().onAuthStateChanged(user => {
-        if(user) {
-          var currentUser = db.collection("users").doc(user.uid)
-          var userID = user.uid
-        }
-      })
-    }
   </script>
 </body>
 
