@@ -188,6 +188,16 @@
     slider.oninput = function () {
       output.innerHTML = this.value + "%";
     }
+
+
+    function createReminder() {
+      firebase.auth().onAuthStateChanged(user => {
+        if(user) {
+          var currentUser = db.collection("users").doc(user.uid)
+          var userID = user.uid
+        }
+      })
+    }
   </script>
 </body>
 
