@@ -195,7 +195,8 @@
   <script>
     function createReminder() {
         let Title = document.getElementById("title").value;
-        let Date = document.getElementById("remind-day").value;
+        let Month = document.getElementById("reminder-month").value;
+        let Day = document.getElementById("remind-day").value;
         let Time = document.getElementById("reminder-time").value;
         
         firebase.auth().onAuthStateChanged(user => {
@@ -210,7 +211,8 @@
                 db.collection("reminders").add({
                   UserId: userID,
                   UserEmail: userEmail,
-                  Date: Date,
+                  Month: Month,
+                  Day: Day,
                   Description: Title,
                   Time: Time
                 });
