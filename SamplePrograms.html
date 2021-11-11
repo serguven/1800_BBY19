@@ -10,6 +10,18 @@
     <link href="./styles/my_style.css" rel="stylesheet">
 
 
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+
+
     <!-- Link to the API keys for Excelsior Firebase -->
     <script src="scripts/firebaseAPI.js"></script>
 
@@ -44,21 +56,21 @@
                             <a href="#" class="popover__title">New Reminder's Voice</a>
                             <div class="popover__content">
                                 <p class="popover__message">
-                                <form action="/action_page.php">
-                                    <p>Please select your new reminder's voice: </p>
-                                    <input type="radio" id="anime" name="fav_voice">
-                                      <label for="anime">Anime Voice</label><br>
-                                    <input type="radio" id="snow-white" name="fav_voice">
-                                      <label for="snow-white">Snow White</label><br>
-                                    <input type="radio" id="cruella" name="fav_voice">
-                                      <label for="cruella">Cruella de Vil</label><br>
-                                    <input type="radio" id="newsanchor" name="fav_voice">
-                                      <label for="newsanchor">News Anchor</label><br>
-                                    <input type="radio" id="natgeo-nar" name="fav_voice">
-                                      <label for="natgeo-nar">NatGeo Narattor</label><br>
-                                    <input type="submit" value="All Set!"
-                                        style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(252, 186, 3);">
-                                </form>
+                                    <form action="/action_page.php">
+                                        <p>Please select your new reminder's voice: </p>
+                                        <input type="radio" id="anime" name="fav_voice">
+                                          <label for="anime">Anime Voice</label><br>
+                                        <input type="radio" id="snow-white" name="fav_voice">
+                                          <label for="snow-white">Snow White</label><br>
+                                        <input type="radio" id="cruella" name="fav_voice">
+                                          <label for="cruella">Cruella de Vil</label><br>
+                                        <input type="radio" id="newsanchor" name="fav_voice">
+                                          <label for="newsanchor">News Anchor</label><br>
+                                        <input type="radio" id="natgeo-nar" name="fav_voice">
+                                          <label for="natgeo-nar">NatGeo Narattor</label><br>
+                                        <input type="submit" value="All Set!"
+                                            style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(252, 186, 3);">
+                                    </form>
                                 </p>
                             </div>
                         </div>
@@ -68,62 +80,62 @@
                             <a href="#" class="popover__title">Calendar</a>
                             <div class="popover__content">
                                 <p class="popover__message">
-                                <form action="/action_page.php">
-                                    <div class="month">
-                                        <ul>
-                                            <li class="prev">&#10094;</li>
-                                            <li class="next">&#10095;</li>
-                                            <li>
-                                                October<br>
-                                                <span style="font-size:18px">2021</span>
-                                            </li>
+                                    <form action="/action_page.php">
+                                        <div class="month">
+                                            <ul>
+                                                <li class="prev">&#10094;</li>
+                                                <li class="next">&#10095;</li>
+                                                <li>
+                                                    October<br>
+                                                    <span style="font-size:18px">2021</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <ul class="weekdays" style="font-size: 10px;">
+                                            <li>Mo</li>
+                                            <li>Tu</li>
+                                            <li>We</li>
+                                            <li>Th</li>
+                                            <li>Fr</li>
+                                            <li>Sa</li>
+                                            <li>Su</li>
                                         </ul>
-                                    </div>
 
-                                    <ul class="weekdays" style="font-size: 10px;">
-                                        <li>Mo</li>
-                                        <li>Tu</li>
-                                        <li>We</li>
-                                        <li>Th</li>
-                                        <li>Fr</li>
-                                        <li>Sa</li>
-                                        <li>Su</li>
-                                    </ul>
-
-                                    <ul class="days">
-                                        <li>1</li>
-                                        <li>2</li>
-                                        <li>3</li>
-                                        <li>4</li>
-                                        <li>5</li>
-                                        <li>6</li>
-                                        <li>7</li>
-                                        <li>8</li>
-                                        <li>9</li>
-                                        <li><span class="active">10</span></li>
-                                        <li>11</li>
-                                        <li>12</li>
-                                        <li>13</li>
-                                        <li>14</li>
-                                        <li>15</li>
-                                        <li>16</li>
-                                        <li>17</li>
-                                        <li>18</li>
-                                        <li>19</li>
-                                        <li>20</li>
-                                        <li>21</li>
-                                        <li>22</li>
-                                        <li>23</li>
-                                        <li>24</li>
-                                        <li>25</li>
-                                        <li>26</li>
-                                        <li>27</li>
-                                        <li>28</li>
-                                        <li>29</li>
-                                        <li>30</li>
-                                        <li>31</li>
-                                    </ul>
-                                </form>
+                                        <ul class="days">
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li><span class="active">10</span></li>
+                                            <li>11</li>
+                                            <li>12</li>
+                                            <li>13</li>
+                                            <li>14</li>
+                                            <li>15</li>
+                                            <li>16</li>
+                                            <li>17</li>
+                                            <li>18</li>
+                                            <li>19</li>
+                                            <li>20</li>
+                                            <li>21</li>
+                                            <li>22</li>
+                                            <li>23</li>
+                                            <li>24</li>
+                                            <li>25</li>
+                                            <li>26</li>
+                                            <li>27</li>
+                                            <li>28</li>
+                                            <li>29</li>
+                                            <li>30</li>
+                                            <li>31</li>
+                                        </ul>
+                                    </form>
                                 </p>
                             </div>
                         </div>
@@ -134,8 +146,8 @@
                             <a href="reminder.html" class="popover__title">New Reminder</a>
                             <div class="popover__content">
                                 <p class="popover__message">
-                                <form action="/action_page.php">
-                                    <p>Click Here To Create A New Reminder! </p>
+                                    <form action="/action_page.php">
+                                        <p>Click Here To Create A New Reminder! </p>
                     </li>
                 </ul>
             </div>
@@ -145,38 +157,54 @@
     <div id="main-content">
         <h1 class="sample">SAMPLE PROGRAMS</h1>
         <div class="card-sample">
-            <h4 class="card-header bg-warning text-center">Program Name</h4>
+            <h4 class="card-header bg-warning text-center" id="Healthy Life">Program Name</h4>
             <div class="card-body">
-                <h5 class="card-title">Activity Name</h5>
-                <p class="card-text">Introductory information about program.</p>
+                <h5 class="card-title" id="Running">Activity Name</h5>
+                <p class="card-text" id="Weight lose">Introductory information about program.</p>
                 <div class="button text-end">
                     <a href="#" class="btn btn-warning">Details</a>
                 </div>
             </div>
         </div>
         <div class="card-sample">
-            <h4 class="card-header bg-warning text-center">Program Name</h4>
+            <h4 class="card-header bg-warning text-center" id="Future Chef">Program Name</h4>
             <div class="card-body">
-                <h5 class="card-title">Activity Name</h5>
-                <p class="card-text">Introductory information about program.</p>
+                <h5 class="card-title" id="Cooking" >Activity Name</h5>
+                <p class="card-text" id="Will be a chef">Introductory information about program.</p>
                 <div class="button text-end">
                     <a href="#" class="btn btn-warning">Details</a>
                 </div>
             </div>
         </div>
         <div class="card-sample">
-            <h4 class="card-header bg-warning text-center">Program Name</h4>
+            <h4 class="card-header bg-warning text-center" id="New Poet">Program Name</h4>
             <div class="card-body">
-                <h5 class="card-title">Activity Name</h5>
-                <p class="card-text">Introductory information about program.</p>
+                <h5 class="card-title" id="Writing Poems">Activity Name</h5>
+                <p class="card-text" id="Write a poem everyday">Introductory information about program.</p>
                 <div class="button text-end">
                     <a href="#" class="btn btn-warning">Details</a>
                 </div>
             </div>
         </div>
-
-
     </div>
+
+
+    <script>
+        function displaySharedPrograms() {
+            db.collection("SharedPrograms").get()
+                .then(allSharedPrograms => {
+                    allSharedPrograms.forEach(doc => {
+                        var sharedProgramLabel = doc.data().Label;
+                        var sharedProgramActivityType = doc.data().ActivityType;
+                        var sharedProgramInfo = doc.data().Goal;
+                        document.getElementById(sharedProgramLabel).innerText = sharedProgramLabel;
+                        document.getElementById(sharedProgramActivityType).innerText = sharedProgramActivityType;
+                        document.getElementById(sharedProgramInfo).innerText = sharedProgramInfo;
+                    })
+                })
+        }
+        displaySharedPrograms();
+    </script>
 </body>
 
 </html>
