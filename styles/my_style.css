@@ -5,6 +5,19 @@ body {
     font-size: 40px;
 }
 
+.navbar, .btn, .card-header, .update {
+    background-color: rgb(226, 191, 226);
+}
+
+.btn-primary {
+    background-color: rgb(238, 235, 208);
+    color: black;
+}
+
+.update {
+    color: black;
+}
+
 #navbarSupportedContent {
     justify-content: space-between;
 }
@@ -96,6 +109,7 @@ a {
     visibility: visible;
     transform: translate(0, -20px);
     transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+    margin-left: 50%;
 }
 
 .popover__message {
@@ -343,13 +357,13 @@ section {
 }
 
 .form-row-btn>button:hover {
-    background-color: rgba(255, 0, 0, 1);
+    background-color: rgb(230, 158, 116);
 }
 
-.form-row-btn>button:active {
+/* .form-row-btn>button:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
         inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
+} */
 
 .dropdown-check-list {
     display: inline-block;
@@ -396,7 +410,7 @@ section {
 }
 
 .dropdown-check-list.visible .anchor {
-    color: #0094ff;
+    color: rgb(226, 191, 226);
 }
 
 .dropdown-check-list.visible .items {

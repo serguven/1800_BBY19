@@ -15,7 +15,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
+
   <!-- Firebase 8 related JS CDN -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
           alt="" width="100" height="100"></a>
@@ -55,20 +55,19 @@
               <a href="#" class="popover__title">New Reminder's Voice</a>
               <div class="popover__content">
                 <p class="popover__message">
-                <form action="/action_page.php">
+                <form>
                   <p>Please select your new reminder's voice: </p>
-                  <input type="radio" id="anime" name="fav_voice">
-                    <label for="anime">Anime Voice</label><br>
-                  <input type="radio" id="snow-white" name="fav_voice">
-                    <label for="snow-white">Snow White</label><br>
-                  <input type="radio" id="cruella" name="fav_voice">
-                    <label for="cruella">Cruella de Vil</label><br>
-                  <input type="radio" id="newsanchor" name="fav_voice">
-                    <label for="newsanchor">News Anchor</label><br>
-                  <input type="radio" id="natgeo-nar" name="fav_voice">
-                    <label for="natgeo-nar">NatGeo Narattor</label><br>
-                  <input type="submit" value="All Set!"
-                    style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(252, 186, 3);">
+                  <input type="radio" id="anime" name="fav_voice" value="anime">
+                    <label for="remindersVoice1">Anime Voice</label><br>
+                  <input type="radio" id="snow-white" name="fav_voice" value="snow-white">
+                    <label for="remindersVoice2">Snow White</label><br>
+                  <input type="radio" id="cruella" name="fav_voice" value="cruella">
+                    <label for="remindersVoice3">Cruella de Vil</label><br>
+                  <input type="radio" id="newsanchor" name="fav_voice" value="newsanchor">
+                    <label for="remindersVoice4">News Anchor</label><br>
+                  <input type="radio" id="natgeo-nar" name="fav_voice" value="natgeo-nar">
+                    <label for="remindersVoice5">NatGeo Narrator</label><br>
+                  <button type="submit" class="btn btn-lg" onclick="createVoiceReminder()">ALL SET!</button>
                 </form>
                 </p>
               </div>
@@ -157,6 +156,15 @@
   </nav>
   <div>
     <div class="px-4 py-5 my-5 text-center">
+      <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <h1 style="font-size: 100px;">Good morning, <span id="name-goes-here"></span>!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="px-4 py-5 my-5 text-center">
       <img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png" alt="" width="300" height="300">
       <h1 class="display-5 fw-bold"></h1>
       <div class="col-lg-6 mx-auto">
@@ -180,12 +188,75 @@
         <img src="./images/create.jpg" class="card-img-top" alt="...">
       </a>
       <div class="card-body">
-        <h5 class="card-title">Create your own activity</h5>
+        <a href="CreateYourProgram.html"><h5 class="card-title">Create your own activity</h5></a>
         <p class="card-text"></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
 </body>
+<script>
+  function insertName() {
+    firebase.auth().onAuthStateChanged(user => {
+
+      if (user) {
+        console.log(user.uid);
+        currentUser = db.collection("users").doc(user.uid);
+        currentUser.get()
+          .then(userDoc => {
+            var user_Name = userDoc.data().name;
+            console.log(user_Name);
+            $("#name-goes-here").text(user_Name);
+          })
+      } else {
+        console.log("no user signed in.");
+      }
+    });
+  }
+
+  var form = document.querySelector("form");
+
+  form.addEventListener("submit", function (event) {
+    var data = new FormData(form);
+    var output = "";
+    for (const entry of data) {
+      output = output + entry[0] + "=" + entry[1] + "\r";
+    };
+    log.innerText = output;
+    event.preventDefault();
+  }, false);
+
+  function createVoiceReminder() {
+    let animeVoice = document.getElementById("anime").value;
+    let snowwhiteVoice = document.getElementById("snow-white").value;
+    let cruellaVoice = document.getElementById("cruella").value;
+    let newsanchorVoice = document.getElementById("newsanchor").value;
+    let natgeonarVoice = document.getElementById("natgeo-nar").value;
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        var currentUser = db.collection("users").doc(user.uid)
+        var userID = user.uid;
+
+        currentUser.get()
+          .then(userDoc => {
+            var userEmail = userDoc.data().email;
+
+            db.collection("remindersVoice").add({
+              AnimeVoice: animeVoice,
+              SnowwhiteVoice: snowwhiteVoice,
+              CruellaVoice: cruellaVoice,
+              NewsanchorVoice: newsanchorVoice,
+              NatgeonarVoice: natgeonarVoice
+            });
+          })
+      } else {
+        console.log("no user signed in.");
+      }
+    });
+  }
+  createVoiceReminder()
+  insertName();
+</script>
 
 </html>

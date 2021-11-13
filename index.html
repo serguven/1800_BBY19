@@ -30,7 +30,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png" alt=""
           width="100" height="100"></a>
@@ -66,9 +66,8 @@
                   <input type="radio" id="newsanchor" name="fav_voice">
                     <label for="newsanchor">News Anchor</label><br>
                   <input type="radio" id="natgeo-nar" name="fav_voice">
-                    <label for="natgeo-nar">NatGeo Narattor</label><br>
-                  <input type="submit" value="All Set!"
-                    style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(252, 186, 3);">
+                    <label for="natgeo-nar">NatGeo Narrator</label><br>
+                  <button type="button" class="btn btn-lg" onclick="createVoiceReminder()">ALL SET!</button>
                 </form>
                 </p>
               </div>
@@ -143,7 +142,7 @@
 
         <form class="d-flex">
           <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
-          <label class="btn btn-primary" for="btn-check"><a href="login.html" style="color: white;">Sign up!</a></label>
+          <label class="btn btn-primary" for="btn-check"><a href="login.html">Sign up!</a></label>
           <input type="checkbox" class="btn-check" id="btn-check-3" autocomplete="off" disabled>
           <label class="btn btn-primary" for="btn-check-3">Log in</label>
         </form>
@@ -156,7 +155,7 @@
     <h1 class="display-5 fw-bold"></h1>
     <div class="col-lg-6 mx-auto">
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-warning btn-lg px-4 gap-3"><a href="main.html" style="color: black;">Get
+        <button type="button" class="btn btn-lg px-4 gap-3"><a href="main.html" style="color: black;">Get
             Started</a></button>
       </div>
     </div>
@@ -168,8 +167,16 @@
 
   <div style="padding:20px" class="px-4 py-5 my-5 text-center">
     <h2 style="font-size: 100px;">Feeling unmotivated?</h2>
-    <button onclick="on()" type="button" class="btn btn-warning btn-lg px-4 gap-3" style="margin-top: 50px;">Tab here
+    <button onclick="on()" type="button" class="btn btn-lg px-4 gap-3" style="margin-top: 50px;">Tab here
       and you might feel better! :D</button>
+  </div>
+
+  <div style="padding:20px" class="px-4 py-5 my-5 text-center">
+    <h2 style="font-size: 100px;">Haven't felt better?</h2>
+    <button onclick="getAPet()" type="button" class="btn btn-lg px-4 gap-3" style="margin-top: 50px;">Tab
+      here
+      and a virtual pet will accompany you today! :D</button>
+    <p id="get-a-pet"></p>
   </div>
 
   <div style="padding:20px" class="px-4 py-5 my-5 text-center">
@@ -211,6 +218,9 @@
   </div>
 
   <script>
+    $(document).ready(function () {
+      $('[data-toggle="popover"]').popover();
+    });
     function on() {
       document.getElementById("overlay").style.display = "block";
     }
@@ -234,6 +244,41 @@
           document.getElementById("motivational-quotes2").innerHTML = quote2Doc.data().quote
         })
     }
+
+    function createVoiceReminder() {
+      let animeVoice = document.getElementById("anime").value;
+      let snowwhiteVoice = document.getElementById("snow-white").value;
+      let cruellaVoice = document.getElementById("cruella").value;
+      let newsanchorVoice = document.getElementById("newsanchor").value;
+      let natgeonarVoice = document.getElementById("natgeo-nar").value;
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          var currentUser = db.collection("users").doc(user.uid)
+          var userID = user.uid;
+
+          currentUser.get()
+            .then(userDoc => {
+              var userEmail = userDoc.data().email;
+
+              db.collection("remindersVoice").add({
+                AnimeVoice: animeVoice,
+                SnowwhiteVoice: snowwhiteVoice,
+                CruellaVoice: cruellaVoice,
+                NewsanchorVoice: newsanchorVoice,
+                NatgeonarVoice: natgeonarVoice
+              });
+            })
+        } else {
+          console.log("no user signed in.");
+        }
+      });
+    }
+
+    function getAPet() {
+      document.getElementById("get-a-pet").innerHTML = "<img src=\"https://www.pngitem.com/pimgs/m/536-5363372_kawaii-dog-inu-perro-cute-love-iloveyou-lover.png\">"
+    }
+    createVoiceReminder();
     read_display_quote();
     read_display_quote2();
   </script>
