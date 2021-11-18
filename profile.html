@@ -166,13 +166,10 @@
             <label for="file" id="uploadBtn">Choose Photo</label>
         </div>
         <ul id="wrapper-enter-personal-data">
+        <fieldset class="mb-3" id="personalInfoFields" disabled>
             <li class="form-row">
                 <label for="gender">Gender</label>
-                <select class="gender-select" id="autoSizingSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                </select>
+                <input type="text" id="nameGender" class="form-control" placeholder="Enter Your Gender">
             </li>
             <li class="form-row">
                 <label for="age">Age</label>
@@ -192,10 +189,12 @@
                     <span class="input-group-text">kg</span>
                 </div>
             </li>
-            <li class="form-row-btn">
-                <button class="update btn-warning" type="button"
-                    onclick="alert('Your profile is updated')">Update</button>
-            </li>
+        </fieldset>
+        <div class="d-flex justify-content-end mt-5">
+            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+            <span style="width: 10px"></span>
+            <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
+        </div>
         </ul>
     </form>
 
@@ -206,6 +205,80 @@
 
     <!-- javascript starts here-->
     <script>
+         function populateInfo() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid)
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get the data fields of the user
+                            var userName = userDoc.data().name;
+                            var userGender = userDoc.data().gender;
+                            var userAge = userDoc.data().age;
+                            var userHeight = userDoc.data().height;
+                            var userWeight = userDoc.data().weight;
+
+                            //if the data fields are not empty, then write them in to the form.
+                            if (userGender != null) {
+                                document.getElementById("nameGender").value = userGender;
+                            } else {
+                                document.getElementById("nameGender").value = "NULL";
+                            } 
+                            if (userAge != null) {
+                                document.getElementById("number").value = userAge;
+                            } else {
+                                document.getElementById("number").value = "000";
+                            }
+                            if (userHeight != null) {
+                                document.getElementById("centimeters").value = userHeight;
+                            } else {
+                                document.getElementById("centimeters").value = "000";
+                            }
+                            if (userWeight != null) {
+                                document.getElementById("kilograms").value = userWeight;
+                            } else {
+                                document.getElementById("kilograms").value = "000";
+                            }
+                        })
+                } else {
+                    console.log("no one is logged in.");
+                }
+            });
+        }
+
+//call the function to run it 
+populateInfo();
+
+function editUserInfo() {
+   //Enable the form fields
+   document.getElementById('personalInfoFields').disabled = false;
+}
+
+var currentUser         
+
+function saveUserInfo() {
+    userGender = document.getElementById('nameGender').value;
+    userAge = document.getElementById('number').value;       //get the value of the field with id=
+    userHeight = document.getElementById('centimeters').value;     //get the value of the field with id=
+    userWeight = document.getElementById('kilograms').value;       //get the value of the field with id=
+
+    currentUser.update({
+                    gender: userGender,
+                    age: userAge,
+                    height: userHeight,
+                    weight: userWeight
+                })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                })
+    
+    document.getElementById('personalInfoFields').disabled = true;
+}
+
         //declaring html elements
         const imgDiv = document.querySelector('#profile-picture');
         const img = document.querySelector('#photo');
