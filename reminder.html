@@ -179,17 +179,20 @@
       </div>
       <div id="reminderCalendar">
         <p>Reminder Date:</p>
-        <input type="text" id="reminder-month" placeholder="Month" aria-label="Username"
-          aria-describedby="basic-addon1">
-        <input type="text" id="remind-day" placeholder="Day" aria-label="Username" aria-describedby="basic-addon1">
-        <input type="text" id="reminder-year" placeholder="Year" aria-label="Username" aria-describedby="basic-addon1">
-        <br> <br>
-        <input type="text" id="reminder-time" placeholder="Time" aria-label="Username" aria-describedby="basic-addon1">
+        <input min="1" max="12" type="number" id="reminder-month" name="number" placeholder="Month">
+        <input min="1" max="31" type="number" id="remind-day" name="number" placeholder="Day">
+        <input min="2021" max="2150" type="number" id="reminder-time" name="number" placeholder="Year">
+        <br>
+        <label for="appt">Select a time:</label>
+        <p><input type="time" id="appt" name="appt">
+        <input type="submit" onclick="printTime()">
+      </p>
+        
       </div>
       <div id="ringtoneVolume">
         <p>Ringtone Volume: </p>
         <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onclick="printVolume()">
           <p>Volume: <span id="demo"> %</span></p>
         </div>
       </div>
@@ -200,11 +203,16 @@
   </section>
 
   <script>
+    function printVolume() {
+      let v = document.getElementById("myRange").value;
+      console.log(v);
+    }
     function createReminder() {
       let Title = document.getElementById("title").value;
       let Month = document.getElementById("reminder-month").value;
       let Day = document.getElementById("remind-day").value;
-      let Time = document.getElementById("reminder-time").value;
+      let Time = document.getElementById("appt").value;
+      let Volume = document.getElementById("myRange").value;
 
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -221,7 +229,8 @@
                 Month: Month,
                 Day: Day,
                 Description: Title,
-                Time: Time
+                Time: Time,
+                Volume: Volume
               });
             })
         } else {
