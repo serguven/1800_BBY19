@@ -55,20 +55,20 @@
                             <a href="#" class="popover__title">New Reminder's Voice</a>
                             <div class="popover__content">
                                 <p class="popover__message">
-                                <form action="/action_page.php">
+                                <form>
                                     <p>Please select your new reminder's voice: </p>
-                                    <input type="radio" id="anime" name="fav_voice">
-                                      <label for="anime">Anime Voice</label><br>
-                                    <input type="radio" id="snow-white" name="fav_voice">
-                                      <label for="snow-white">Snow White</label><br>
-                                    <input type="radio" id="cruella" name="fav_voice">
-                                      <label for="cruella">Cruella de Vil</label><br>
-                                    <input type="radio" id="newsanchor" name="fav_voice">
-                                      <label for="newsanchor">News Anchor</label><br>
-                                    <input type="radio" id="natgeo-nar" name="fav_voice">
-                                      <label for="natgeo-nar">NatGeo Narattor</label><br>
-                                    <input type="submit" value="All Set!"
-                                        style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(226, 191, 226);">
+                                    <input type="radio" id="anime" name="fav_voice" value="anime">
+                                      <label for="remindersVoice1">Anime Voice</label><br>
+                                    <input type="radio" id="snow-white" name="fav_voice" value="snow-white">
+                                      <label for="remindersVoice2">Snow White</label><br>
+                                    <input type="radio" id="cruella" name="fav_voice" value="cruella">
+                                      <label for="remindersVoice3">Cruella de Vil</label><br>
+                                    <input type="radio" id="newsanchor" name="fav_voice" value="newsanchor">
+                                      <label for="remindersVoice4">News Anchor</label><br>
+                                    <input type="radio" id="natgeo-nar" name="fav_voice" value="natgeo-nar">
+                                      <label for="remindersVoice5">NatGeo Narrator</label><br>
+                                    <button type="submit" class="btn btn-lg" onclick="createVoiceReminder()">ALL
+                                        SET!</button>
                                 </form>
                                 </p>
                             </div>
@@ -159,13 +159,14 @@
                             </form>
                             </p>
                         </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary"><a href="login.html"
-                                    class="btn-primary">Logout</a></button>
-                        </div>
-                    </div>
 
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><a href="login.html"
+                                class="btn-primary">Logout</a></button>
+                    </div>
                 </div>
+            </div>
     </nav>
 
     <form id="main-page">
@@ -212,7 +213,7 @@
         <div class="d-flex justify-content-end mt-5">
             <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
             <span style="width: 10px"></span>
-            <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
+            <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
         </div>
 
 
