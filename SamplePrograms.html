@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
                     alt="" width="100" height="100"></a>
@@ -56,20 +56,20 @@
                             <a href="#" class="popover__title">New Reminder's Voice</a>
                             <div class="popover__content">
                                 <p class="popover__message">
-                                <form action="/action_page.php">
+                                <form>
                                     <p>Please select your new reminder's voice: </p>
-                                    <input type="radio" id="anime" name="fav_voice">
-                                      <label for="anime">Anime Voice</label><br>
-                                    <input type="radio" id="snow-white" name="fav_voice">
-                                      <label for="snow-white">Snow White</label><br>
-                                    <input type="radio" id="cruella" name="fav_voice">
-                                      <label for="cruella">Cruella de Vil</label><br>
-                                    <input type="radio" id="newsanchor" name="fav_voice">
-                                      <label for="newsanchor">News Anchor</label><br>
-                                    <input type="radio" id="natgeo-nar" name="fav_voice">
-                                      <label for="natgeo-nar">NatGeo Narrator</label><br>
-                                    <input type="submit" value="All Set!"
-                                        style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(252, 186, 3);">
+                                    <input type="radio" id="anime" name="fav_voice" value="anime">
+                                      <label for="remindersVoice1">Anime Voice</label><br>
+                                    <input type="radio" id="snow-white" name="fav_voice" value="snow-white">
+                                      <label for="remindersVoice2">Snow White</label><br>
+                                    <input type="radio" id="cruella" name="fav_voice" value="cruella">
+                                      <label for="remindersVoice3">Cruella de Vil</label><br>
+                                    <input type="radio" id="newsanchor" name="fav_voice" value="newsanchor">
+                                      <label for="remindersVoice4">News Anchor</label><br>
+                                    <input type="radio" id="natgeo-nar" name="fav_voice" value="natgeo-nar">
+                                      <label for="remindersVoice5">NatGeo Narrator</label><br>
+                                    <button type="submit" class="btn btn-lg" onclick="createVoiceReminder()">ALL
+                                        SET!</button>
                                 </form>
                                 </p>
                             </div>
@@ -150,7 +150,6 @@
                                     <p>Click Here To Create A New Reminder! </p>
                     </li>
                 </ul>
-
                 <div class="profile-picture">
                     <div class="popover__wrapper">
                         <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
@@ -161,10 +160,14 @@
                             </form>
                             </p>
                         </div>
+
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><a href="login.html"
+                                class="btn-primary">Logout</a></button>
                     </div>
                 </div>
             </div>
-        </div>
     </nav>
 
     <h1 class="sample">SAMPLE PROGRAMS</h1>
