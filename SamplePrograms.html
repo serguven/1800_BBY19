@@ -173,12 +173,12 @@
     <h1 class="sample">SAMPLE PROGRAMS</h1>
     <template id="sampleProgramCardTemplate">
         <div class="card-sample">
-            <h4 class="card-header text-center">Program Name</h4>
+            <h4 class="card-header text-center" id="xyz">Program Name</h4>
             <div class="card-body">
                 <h5 class="card-title">Activity Name</h5>
                 <p class="card-text">Introductory information about program.</p>
                 <div class="button text-end">
-                    <a href="#" class="btn">Details</a>
+                    <button href="#" class="btn" type="button" onclick="asd()">Details</button>
                 </div>
             </div>
         </div>
@@ -260,6 +260,33 @@
         //         })
         // }
         // displaySharedPrograms();
+
+
+
+        function asd() {
+            let Header = document.getElementById("xyz").value;
+
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid)
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            // Start a new collection and add all data in it.
+                            db.collection("Headers").add({
+                                Header: Header
+                            });
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
+                }
+            });
+        }
 
 
     </script>

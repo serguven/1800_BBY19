@@ -220,7 +220,7 @@
             <div class="col-25">
                 <label for="repetition">Repeat</label>
             </div>
-            <div class="col-75">
+            <div class="col-75" id="multiselect">
                 <div class="selectBox" onclick="showCheckboxes()">
                     <select>
                         <option>Select an option</option>
@@ -252,7 +252,7 @@
                 <label for="reminder">Reminder Voice</label>
             </div>
             <div class="col-75">
-                <select id="reminderVoice" class="form-select" aria-label="Default select example">
+                <select id="reminderVoice" aria-label="Default select example">
                     <option selected>Reminder</option>
                     <option value="1">Anime Voice</option>
                     <option value="2">Snow White</option>
@@ -272,11 +272,9 @@
             </div>
         </div>
         <div class="row">
+            <button class="update" type="button" onclick="addShareProgram(); alert('Program shared')">Share</button>
             <button class="update" type="button" onclick="createProgram(); alert('New program is created')">Create
                 Program</button>
-        </div>
-        <div class="row">
-            <button class="update" type="button" onclick="addShareProgram(); alert('Program shared')">Share</button>
         </div>
 
 

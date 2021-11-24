@@ -173,8 +173,115 @@
 
     </nav>
 
+    <form id="sampleProgram">
+        <h1 id="heading">Program Name</h1>
+        <fieldset id="sampleProgramData" disabled>
+            <div class="row">
+                <div class="col-25">
+                    <label for="label">Label</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your program">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="activityType">Activity Type</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="goal">Goal</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="start">Start Date</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" id="startDate" name="chosenStartDate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="time">Activity Time</label>
+                </div>
+                <div class="col-75">
+                    <input type="time" id="time" name="chosenTime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="repetition">Repeat</label>
+                </div>
+                <div class="col-75" id="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes()">
+                        <select>
+                            <option>Select an option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes">
+                        <label for="one">
+                            <input type="checkbox" id="one" value="Never" />Never</label>
+                        <label for="two">
+                            <input type="checkbox" id="two" value="Every Monday" />Every Monday</label>
+                        <label for="three">
+                            <input type="checkbox" id="three" value="Every Tuesday" />Every Tuesday</label>
+                        <label for="one">
+                            <input type="checkbox" id="four" value="Every Wednesday" />Every Wednesday</label>
+                        <label for="one">
+                            <input type="checkbox" id="five" value="Every Thursday" />Every Thursday</label>
+                        <label for="one">
+                            <input type="checkbox" id="six" value="Every Friday" />Every Friday</label>
+                        <label for="one">
+                            <input type="checkbox" id="seven" value="Every Saturday" />Every Saturday</label>
+                        <label for="one">
+                            <input type="checkbox" id="eight" value="Every Sunday" />Every Sunday</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="reminder">Reminder Voice</label>
+                </div>
+                <div class="col-75">
+                    <select id="reminderVoice" aria-label="Default select example">
+                        <option selected>Reminder</option>
+                        <option value="1">Anime Voice</option>
+                        <option value="2">Snow White</option>
+                        <option value="3">Cruella de Vil</option>
+                        <option value="4">News Anchor</option>
+                        <option value="5">NatGeo Narrator</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="notes">Notes</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
+                        style="height:200px"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row">
+            <button class="update" type="button" onclick="editUserInfo()">Edit</button>
+            <button class="update" type="button" onclick="saveUserInfo()">Save</button>
+        </div>
 
-    <form id="createYourProgram">
+
+
+
+
+    <!--<form id="createYourProgram">
         <fieldset class="mb-3" id="personalInfoFields" disabled>
             <div class="row">
                 <div class="col-25">
@@ -276,7 +383,7 @@
             <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
             <span style="width: 10px"></span>
             <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
-        </div>
+        </div>-->
 
 
 

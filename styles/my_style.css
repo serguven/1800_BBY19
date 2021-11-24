@@ -225,14 +225,7 @@ section {
     margin-top: 1%;
 }
 
-.sample {
-    text-align: center;
-    margin-top: 50px;
-}
 
-.card-sample {
-    margin: 50px 200px auto;
-}
 
 .container-fluid {
     font-size: 60%;
@@ -250,13 +243,25 @@ section {
     font-size: 90%;
 }
 
+
+
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
 }
 
-/*------------------------------------------------------*/
+/*-------------------- (profile page css) ----------------------------------*/
+#personalInfoFields {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #heading {
     text-align: center;
     margin-top: 50px;
@@ -276,7 +281,7 @@ section {
     border: 1px solid grey;
 }
 
-#photo {
+#choosePhoto {
     height: 100%;
     width: 100%;
 }
@@ -302,34 +307,13 @@ section {
     display: none;
 }
 
-/* ---------------------------- */
-#createYourProgram, fieldset {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-
-.col-25 {
+#personalInfoFields>.row>.col-25 {
     float: left;
     width: 25%;
     margin-top: 6px;
 }
 
-.col-75 {
+#personalInfoFields>.row>.col-75 {
     float: left;
     width: 75%;
     margin-top: 6px;
@@ -337,16 +321,69 @@ label {
 }
 
 /* Clear floats after the columns */
-.row:after {
+#personalInfoFields>.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#main-page>.d-flex {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* --------------(CreateYourProgram page css)-------------- */
+
+#createYourProgram {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#createYourProgram > select,
+#createYourProgram > textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#createYourProgram > label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+#createYourProgram>.row>.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+#createYourProgram>.row>.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+#createYourProgram>.row:after {
     content: "";
     display: table;
     clear: both;
 }
 
 /** Repetition */
-.multiselect {
+#multiselect {
     width: 200px;
-    margin-left: 700px;
 }
 
 .selectBox {
@@ -354,7 +391,7 @@ label {
 }
 
 .selectBox select {
-    width: 100%;
+    width: 58%;
 }
 
 .overSelect {
@@ -368,6 +405,8 @@ label {
 #checkboxes {
     display: none;
     border: 1px #dadada solid;
+    width: 58%;
+    margin-left: 320px;
 }
 
 #checkboxes label {
@@ -380,7 +419,15 @@ label {
 
 /* repetition ends */
 
-.row>button {
+#createYourProgram #reminderVoice {
+    width: 58%;
+}
+
+#createYourProgram #notes {
+    width: 58%;
+}
+
+#createYourProgram > .row>button {
     color: white;
     border: 0;
     margin-top: 50px;
@@ -390,6 +437,159 @@ label {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+/*----------(SamplePrograms page css)--------*/
+
+.sample {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.card-sample {
+    margin: 50px 200px auto;
+}
+
+.card-sample,
+.cards {
+    width: 100%;
+}
+
+
+/*-----------------(CreatedProgramDetails page css)---------*/
+#createdProgram {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#createdProgramData > select,
+#createdProgramData > textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#createdProgramData > label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+#createdProgramData>.row>.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+#createdProgramData>.row>.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+#createdProgramData>.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+#createdProgramData #reminderVoice {
+    width: 58%;
+}
+
+#createdProgramData #notes {
+    width: 58%;
+}
+
+#createdProgram > .row > button {
+    color: white;
+    border: 0;
+    margin-top: 50px;
+    padding: .5em;
+    border-radius: 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*-----------(SampleProgramDetails page)-------*/
+#sampleProgram {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sampleProgramData > select,
+#sampleProgramData > textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#sampleProgramData > label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+#sampleProgramData>.row>.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+#sampleProgramData>.row>.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+#sampleProgramData>.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+#sampleProgramData #reminderVoice {
+    width: 58%;
+}
+
+#sampleProgramData #notes {
+    width: 58%;
+}
+
+#sampleProgram > .row > button {
+    color: white;
+    border: 0;
+    margin-top: 50px;
+    padding: .5em;
+    border-radius: 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
 
 
 
@@ -529,13 +729,17 @@ label {
         width: 13.1%;
     }
 
-    .col-25,
-    .col-75 {
+    #createYourProgram>.row>.col-25 {
         width: 100%;
         margin-top: 0;
     }
 
-    .row>button {
+    #createYourProgram>.row>.col-75 {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #createYourProgram>.row>.row>button {
         width: 100%;
         margin-top: 10px;
     }
@@ -571,13 +775,17 @@ label {
         padding: 2px;
     }
 
-    .col-25,
-    .col-75 {
+    #createYourProgram>.row>.col-25 {
         width: 100%;
         margin-top: 0;
     }
 
-    .row>button {
+    #createYourProgram>.row>.col-75 {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #createYourProgram>.row>.row>button {
         width: 100%;
         margin-top: 10px;
     }
@@ -585,9 +793,6 @@ label {
 
 }
 
-.card-sample, .cards {
-    width: 100%;
-}
 
 @media screen and (max-width: 290px) {
 
@@ -596,13 +801,18 @@ label {
         width: 12.2%;
     }
 
-    .col-25,
-    .col-75 {
+
+    #createYourProgram>.row>.col-25 {
         width: 100%;
         margin-top: 0;
     }
 
-    .row>button {
+    #createYourProgram>.row>.col-75 {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #createYourProgram>.row>.row>button {
         width: 100%;
         margin-top: 10px;
     }

@@ -172,7 +172,7 @@
     <form id="main-page">
         <h1 id="heading">PROFILE</h1>
         <div id="profile-picture">
-            <img src="images/Profile_avatar_placeholder.png" id="photo">
+            <img src="images/Profile_avatar_placeholder.png" id="choosePhoto">
             <input type="file" id="file">
             <label for="file" id="uploadBtn">Choose Photo</label>
         </div>
@@ -182,7 +182,7 @@
                     <label for="gender">Gender</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="nameGender" name="form-control" placeholder="Enter your gender">
+                    <input type="text" size="4" id="nameGender" name="form-control" placeholder="Enter your gender">
                 </div>
             </div>
             <div class="row">
@@ -190,7 +190,7 @@
                     <label for="age">Age</label>
                 </div>
                 <div class="col-75">
-                    <input min="12" max="99" type="number" id="number" name="number" placeholder="Age">
+                    <input min="12" max="100" type="number" id="number" name="number" placeholder="Age">
                 </div>
             </div>
             <div class="row">
@@ -198,7 +198,7 @@
                     <label for="height">Height</label>
                 </div>
                 <div class="col-75">
-                    <input min="0" type="number" id="centimeters" name="centimeters" placeholder="Height">
+                    <input min="0" max="999" type="number" id="centimeters" name="centimeters" placeholder="Height">
                 </div>
             </div>
             <div class="row">
@@ -206,7 +206,7 @@
                     <label for="weight">Weight</label>
                 </div>
                 <div class="col-75">
-                    <input min="0" type="number" id="kilograms" name="kilograms" placeholder="Weight">
+                    <input min="0" max="999" type="number" id="kilograms" name="kilograms" placeholder="Weight">
                 </div>
             </div>
         </fieldset>
