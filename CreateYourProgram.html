@@ -234,15 +234,15 @@
                         <input type="checkbox" id="two" value="Every Monday" />Every Monday</label>
                     <label for="three">
                         <input type="checkbox" id="three" value="Every Tuesday" />Every Tuesday</label>
-                    <label for="one">
+                    <label for="four">
                         <input type="checkbox" id="four" value="Every Wednesday" />Every Wednesday</label>
-                    <label for="one">
+                    <label for="five">
                         <input type="checkbox" id="five" value="Every Thursday" />Every Thursday</label>
-                    <label for="one">
+                    <label for="six">
                         <input type="checkbox" id="six" value="Every Friday" />Every Friday</label>
-                    <label for="one">
+                    <label for="seven">
                         <input type="checkbox" id="seven" value="Every Saturday" />Every Saturday</label>
-                    <label for="one">
+                    <label for="eight">
                         <input type="checkbox" id="eight" value="Every Sunday" />Every Sunday</label>
                 </div>
             </div>
@@ -254,11 +254,11 @@
             <div class="col-75">
                 <select id="reminderVoice" aria-label="Default select example">
                     <option selected>Reminder</option>
-                    <option value="1">Anime Voice</option>
-                    <option value="2">Snow White</option>
-                    <option value="3">Cruella de Vil</option>
-                    <option value="4">News Anchor</option>
-                    <option value="5">NatGeo Narrator</option>
+                    <option value="Anime Voice">Anime Voice</option>
+                    <option value="Snow White">Snow White</option>
+                    <option value="Cruella de Vil">Cruella de Vil</option>
+                    <option value="News Anchor">News Anchor</option>
+                    <option value="NatGeo Narrator">NatGeo Narrator</option>
                 </select>
             </div>
         </div>
@@ -277,67 +277,6 @@
                 Program</button>
         </div>
 
-
-
-
-        <!--<h1 id="heading">Create your program</h1>
-        <ul id="wrapper-create-your-program">
-            <li class="form-row">
-                <label for="label">Label</label>
-                <input type="text" id="labelValue">
-            </li>
-            <li class="form-row">
-                <label for="activityType">Activity Type</label>
-                <input type="text" id="activity">
-            </li>
-            <li class="form-row">
-                <label for="goal">Goal</label>
-                <input type="text" id="goalValue">
-            </li>
-            <li class="form-row">
-                <label for="start">Start Date</label>
-                <input type="date" id="startDate" name="startDate">
-            </li>
-            <li class="form-row">
-                <label for="time">Activity Time</label>
-                <input type="time" id="time" />
-            </li>
-            <li class="form-row">
-                <label for="repetition">Repeat</label>
-                <div id="list1" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor">Never</span>
-                    <ul class="items">
-                        <li><input type="checkbox" />Every Monday </li>
-                        <li><input type="checkbox" />Every Tuesday</li>
-                        <li><input type="checkbox" />Every Wednesday</li>
-                        <li><input type="checkbox" />Every Thursday</li>
-                        <li><input type="checkbox" />Every Friday</li>
-                        <li><input type="checkbox" />Every Saturday</li>
-                        <li><input type="checkbox" />Every Sunday</li>
-                    </ul>
-                </div>
-            </li>
-            <li class="form-row">
-                <label for="reminder">Reminder Voice</label>
-                <select id="reminderVoice" class="form-select" aria-label="Default select example">
-                    <option selected>Reminder</option>
-                    <option value="1">Anime Voice</option>
-                    <option value="2">Snow White</option>
-                    <option value="3">Cruella de Vil</option>
-                    <option value="4">News Anchor</option>
-                    <option value="5">NatGeo Narrator</option>
-                </select>
-            </li>
-            <li class="form-row-btn">
-                <button class="update" type="button"
-                    onclick="createProgram(); alert('New program is created')">Create
-                    Program</button>
-            </li>
-            <li class="form-row-btn">
-                <button class="update" type="button"
-                    onclick="addShareProgram(); alert('Program shared')">Share</button>
-            </li>
-        </ul>-->
     </form>
 
 
@@ -346,14 +285,6 @@
 
     <!--Javascript starts here-->
     <script>
-        // var checkList = document.getElementById('list1');
-        // checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-        //     if (checkList.classList.contains('visible'))
-        //         checkList.classList.remove('visible');
-        //     else
-        //         checkList.classList.add('visible');
-        // }
-
         var expanded = false;
 
         function showCheckboxes() {
@@ -376,6 +307,35 @@
             let ActivityTime = document.getElementById("time").value;
             //let Repeat = document.querySelector("list1").value;
             let ReminderVoice = document.getElementById("reminderVoice").value;
+            let Notes = document.getElementById("notes").value
+
+            //----------------------Repetition Values-------------------------------//
+            const repetitionDays = new Array();
+            if(document.getElementById("one").checked){
+                repetitionDays.push("Never");
+            }
+            if(document.getElementById("two").checked){
+                repetitionDays.push("Every Monday");
+            }
+            if(document.getElementById("three").checked){
+                repetitionDays.push("Every Tuesday");
+            }
+            if(document.getElementById("four").checked){
+                repetitionDays.push("Every Wednesday");
+            }
+            if(document.getElementById("five").checked){
+                repetitionDays.push("Every Thursday");
+            }
+            if(document.getElementById("six").checked){
+                repetitionDays.push("Every Friday");
+            }
+            if(document.getElementById("seven").checked){
+                repetitionDays.push("Every Saturday");
+            }
+            if(document.getElementById("eight").checked){
+                repetitionDays.push("Every Sunday");
+            }
+            //------------------------Repetition Values End--------------------------------//
 
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
@@ -395,8 +355,9 @@
                                 Goal: Goal,
                                 StartDate: StartDate,
                                 ActivityTime: ActivityTime,
-                                //Repeat: Repeat,
-                                ReminderVoice: ReminderVoice
+                                Repeat: repetitionDays,
+                                ReminderVoice: ReminderVoice,
+                                Notes: Notes
                             });
                         })
                 } else {
@@ -415,6 +376,37 @@
             let ActivityTime = document.getElementById("time").value;
             //let Repeat = document.querySelector("list1").value;
             let ReminderVoice = document.getElementById("reminderVoice").value;
+            let Notes = document.getElementById("notes").value
+
+             //-------------------Repetition values----------------------------------//
+            const repetitionDays = new Array();
+
+            if(document.getElementById("one").checked){
+                repetitionDays.push("Never");
+            }
+            if(document.getElementById("two").checked){
+                repetitionDays.push("Every Monday");
+            }
+            if(document.getElementById("three").checked){
+                repetitionDays.push("Every Tuesday");
+            }
+            if(document.getElementById("four").checked){
+                repetitionDays.push("Every Wednesday");
+            }
+            if(document.getElementById("five").checked){
+                repetitionDays.push("Every Thursday");
+            }
+            if(document.getElementById("six").checked){
+                repetitionDays.push("Every Friday");
+            }
+            if(document.getElementById("seven").checked){
+                repetitionDays.push("Every Saturday");
+            }
+            if(document.getElementById("eight").checked){
+                repetitionDays.push("Every Sunday");
+            }
+            //let Repeat = repetitionDays;
+            //-------------------------Repetition Values End-------------------------------//
 
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
@@ -434,8 +426,9 @@
                                 Goal: Goal,
                                 StartDate: StartDate,
                                 ActivityTime: ActivityTime,
-                                //Repeat: Repeat,
-                                ReminderVoice: ReminderVoice
+                                Repeat: repetitionDays,
+                                ReminderVoice: ReminderVoice,
+                                Notes: Notes
                             });
                         })
                 } else {

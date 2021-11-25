@@ -174,21 +174,13 @@
     </nav>
 
     <form id="sampleProgram">
-        <h1 id="heading">Program Name</h1>
+        <h1 id="heading"></h1>
         <fieldset id="sampleProgramData" disabled>
-            <div class="row">
-                <div class="col-25">
-                    <label for="label">Label</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your program">
-                </div>
-            </div>
             <div class="row">
                 <div class="col-25">
                     <label for="activityType">Activity Type</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="activityRead">
                     <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
                 </div>
             </div>
@@ -196,7 +188,7 @@
                 <div class="col-25">
                     <label for="goal">Goal</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="goalValueRead">
                     <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
                 </div>
             </div>
@@ -204,7 +196,7 @@
                 <div class="col-25">
                     <label for="start">Start Date</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="startDateRead">
                     <input type="date" id="startDate" name="chosenStartDate">
                 </div>
             </div>
@@ -212,7 +204,7 @@
                 <div class="col-25">
                     <label for="time">Activity Time</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="timeRead">
                     <input type="time" id="time" name="chosenTime">
                 </div>
             </div>
@@ -251,7 +243,7 @@
                 <div class="col-25">
                     <label for="reminder">Reminder Voice</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="reminderVoiceRead">
                     <select id="reminderVoice" aria-label="Default select example">
                         <option selected>Reminder</option>
                         <option value="1">Anime Voice</option>
@@ -266,7 +258,7 @@
                 <div class="col-25">
                     <label for="notes">Notes</label>
                 </div>
-                <div class="col-75">
+                <div class="col-75" id="notesRead">
                     <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
                         style="height:200px"></textarea>
                 </div>
@@ -278,174 +270,6 @@
         </div>
 
 
-
-
-
-    <!--<form id="createYourProgram">
-        <fieldset class="mb-3" id="personalInfoFields" disabled>
-            <div class="row">
-                <div class="col-25">
-                    <label for="label">Label</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your program">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="activityType">Activity Type</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="goal">Goal</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="start">Start Date</label>
-                </div>
-                <div class="col-75">
-                    <input type="date" id="startDate" name="chosenStartDate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="time">Activity Time</label>
-                </div>
-                <div class="col-75">
-                    <input type="time" id="time" name="chosenTime">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="repetition">Repeat</label>
-                </div>
-                <div class="col-75">
-                    <div class="selectBox" onclick="showCheckboxes()">
-                        <select>
-                            <option>Select an option</option>
-                        </select>
-                        <div class="overSelect"></div>
-                    </div>
-                    <div id="checkboxes">
-                        <label for="one">
-                            <input type="checkbox" id="one" value="Never" />Never</label>
-                        <label for="two">
-                            <input type="checkbox" id="two" value="Every Monday" />Every Monday</label>
-                        <label for="three">
-                            <input type="checkbox" id="three" value="Every Tuesday" />Every Tuesday</label>
-                        <label for="one">
-                            <input type="checkbox" id="four" value="Every Wednesday" />Every Wednesday</label>
-                        <label for="one">
-                            <input type="checkbox" id="five" value="Every Thursday" />Every Thursday</label>
-                        <label for="one">
-                            <input type="checkbox" id="six" value="Every Friday" />Every Friday</label>
-                        <label for="one">
-                            <input type="checkbox" id="seven" value="Every Saturday" />Every Saturday</label>
-                        <label for="one">
-                            <input type="checkbox" id="eight" value="Every Sunday" />Every Sunday</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="reminder">Reminder Voice</label>
-                </div>
-                <div class="col-75">
-                    <select id="reminderVoice" class="form-select" aria-label="Default select example">
-                        <option selected>Reminder</option>
-                        <option value="1">Anime Voice</option>
-                        <option value="2">Snow White</option>
-                        <option value="3">Cruella de Vil</option>
-                        <option value="4">News Anchor</option>
-                        <option value="5">NatGeo Narrator</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="notes">Notes</label>
-                </div>
-                <div class="col-75">
-                    <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
-                        style="height:200px"></textarea>
-                </div>
-            </div>
-        </fieldset>
-        <div class="d-flex justify-content-end mt-5">
-            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-            <span style="width: 10px"></span>
-            <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
-        </div>-->
-
-
-
-
-        <!--<h1 id="heading">Create your program</h1>
-        <ul id="wrapper-create-your-program">
-            <li class="form-row">
-                <label for="label">Label</label>
-                <input type="text" id="labelValue">
-            </li>
-            <li class="form-row">
-                <label for="activityType">Activity Type</label>
-                <input type="text" id="activity">
-            </li>
-            <li class="form-row">
-                <label for="goal">Goal</label>
-                <input type="text" id="goalValue">
-            </li>
-            <li class="form-row">
-                <label for="start">Start Date</label>
-                <input type="date" id="startDate" name="startDate">
-            </li>
-            <li class="form-row">
-                <label for="time">Activity Time</label>
-                <input type="time" id="time" />
-            </li>
-            <li class="form-row">
-                <label for="repetition">Repeat</label>
-                <div id="list1" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor">Never</span>
-                    <ul class="items">
-                        <li><input type="checkbox" />Every Monday </li>
-                        <li><input type="checkbox" />Every Tuesday</li>
-                        <li><input type="checkbox" />Every Wednesday</li>
-                        <li><input type="checkbox" />Every Thursday</li>
-                        <li><input type="checkbox" />Every Friday</li>
-                        <li><input type="checkbox" />Every Saturday</li>
-                        <li><input type="checkbox" />Every Sunday</li>
-                    </ul>
-                </div>
-            </li>
-            <li class="form-row">
-                <label for="reminder">Reminder Voice</label>
-                <select id="reminderVoice" class="form-select" aria-label="Default select example">
-                    <option selected>Reminder</option>
-                    <option value="1">Anime Voice</option>
-                    <option value="2">Snow White</option>
-                    <option value="3">Cruella de Vil</option>
-                    <option value="4">News Anchor</option>
-                    <option value="5">NatGeo Narrator</option>
-                </select>
-            </li>
-            <li class="form-row-btn">
-                <button class="update" type="button"
-                    onclick="createProgram(); alert('New program is created')">Create
-                    Program</button>
-            </li>
-            <li class="form-row-btn">
-                <button class="update" type="button"
-                    onclick="addShareProgram(); alert('Program shared')">Share</button>
-            </li>
-        </ul>-->
     </form>
 
 
@@ -454,14 +278,6 @@
 
     <!--Javascript starts here-->
     <script>
-        // var checkList = document.getElementById('list1');
-        // checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-        //     if (checkList.classList.contains('visible'))
-        //         checkList.classList.remove('visible');
-        //     else
-        //         checkList.classList.add('visible');
-        // }
-
         var expanded = false;
 
         function showCheckboxes() {
@@ -476,82 +292,49 @@
         }
 
 
-        function createProgram() {
-            let Label = document.getElementById("labelValue").value;
-            let ActivityType = document.getElementById("activity").value;
-            let Goal = document.getElementById("goalValue").value;
-            let StartDate = document.getElementById("startDate").value;
-            let ActivityTime = document.getElementById("time").value;
-            //let Repeat = document.querySelector("list1").value;
-            let ReminderVoice = document.getElementById("reminderVoice").value;
+        //-------------------------------------------------//
 
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    var currentUser = db.collection("users").doc(user.uid)
-                    var userID = user.uid;
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get user Email
-                            var userEmail = userDoc.data().email;
-                            // Start a new collection and add all data in it.
-                            db.collection("SamplePrograms").add({
-                                UserID: userID,
-                                UserEmail: userEmail,
-                                Label: Label,
-                                ActivityType: ActivityType,
-                                Goal: Goal,
-                                StartDate: StartDate,
-                                ActivityTime: ActivityTime,
-                                //Repeat: Repeat,
-                                ReminderVoice: ReminderVoice
-                            });
-                        })
+        let programName = localStorage.getItem("programName");
+
+
+        db.collection("SharedPrograms").where("Label", "==", programName)
+            .get()
+            .then(querySharedProgram => {
+                //see how many results you have got from the query
+                size = querySharedProgram.size;
+                // get the documents of query
+                SharedPrograms = querySharedProgram.docs;
+
+                // We want to have one document per hike, so if the the result of
+                //the query is more than one, we can check it right now and clean the DB if needed.
+                if (size = 1) {
+                    var thisSharedProgram = SharedPrograms[0].data();
+
+                    label = thisSharedProgram.Label;
+                    activityType = thisSharedProgram.ActivityType;
+                    goal = thisSharedProgram.Goal;
+                    startDate = thisSharedProgram.StartDate;
+                    activityTime = thisSharedProgram.ActivityTime;
+                    repeat = thisSharedProgram.Repeat;
+                    reminderVoice = thisSharedProgram.ReminderVoice;
+                    notes = thisSharedProgram.Notes;
+
+                    document.getElementById("heading").innerHTML = label;
+                    document.getElementById("activityRead").innerHTML = activityType;
+                    document.getElementById("goalValueRead").innerHTML = goal;
+                    document.getElementById("startDateRead").innerHTML = startDate;
+                    document.getElementById("timeRead").innerHTML = activityTime;
+                    document.getElementById("multiselect").innerHTML = repeat;
+                    document.getElementById("reminderVoiceRead").innerHTML = reminderVoice;
+                    document.getElementById("notesRead").innerHTML = notes;
+
                 } else {
-                    // No user is signed in.
-                    console.log("no user signed in");
+                    console.log("Query has more than one data")
                 }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
             });
-        }
-
-
-        function addShareProgram() {
-            let Label = document.getElementById("labelValue").value;
-            let ActivityType = document.getElementById("activity").value;
-            let Goal = document.getElementById("goalValue").value;
-            let StartDate = document.getElementById("startDate").value;
-            let ActivityTime = document.getElementById("time").value;
-            //let Repeat = document.querySelector("list1").value;
-            let ReminderVoice = document.getElementById("reminderVoice").value;
-
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    var currentUser = db.collection("users").doc(user.uid)
-                    var userID = user.uid;
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get user Email
-                            var userEmail = userDoc.data().email;
-                            // Start a new collection and add all data in it.
-                            db.collection("SharedPrograms").add({
-                                UserID: userID,
-                                UserEmail: userEmail,
-                                Label: Label,
-                                ActivityType: ActivityType,
-                                Goal: Goal,
-                                StartDate: StartDate,
-                                ActivityTime: ActivityTime,
-                                //Repeat: Repeat,
-                                ReminderVoice: ReminderVoice
-                            });
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log("no user signed in");
-                }
-            });
-        }
     </script>
 
 
