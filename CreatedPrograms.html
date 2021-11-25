@@ -195,23 +195,28 @@
             let sampleProgramCardGroup = document.getElementById("sampleProgramCardGroup");
 
 
+            firebase.auth().onAuthStateChanged(user => {
+                //console.log(user.uid);
 
 
-            db.collection("SamplePrograms").get()
-                .then(allSharedPrograms => {
-                    allSharedPrograms.forEach(doc => {
-                        var sharedProgramLabel = doc.data().Label;
-                        var sharedProgramActivityType = doc.data().ActivityType;
-                        var sharedProgramInfo = doc.data().Goal;
-                        let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
-                        testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
-                        testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
-                        testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
-                        testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
-                        sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                db.collection("SamplePrograms").get()
+                    .then(allSharedPrograms => {
+                        allSharedPrograms.forEach(doc => {
+                            var sharedProgramLabel = doc.data().Label;
+                            var sharedProgramActivityType = doc.data().ActivityType;
+                            var sharedProgramInfo = doc.data().Goal;
+                            let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
+                            if (user.uid == doc.data().UserID) {
+                                testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
+                                testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
+                                testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
+                                testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                                sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                            }
 
+                        })
                     })
-                })
+            })
         }
         displayCreatedPrograms();
 
