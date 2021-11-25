@@ -173,12 +173,12 @@
     <h1 class="sample">SAMPLE PROGRAMS</h1>
     <template id="sampleProgramCardTemplate">
         <div class="card-sample">
-            <h4 class="card-header text-center" id="xyz">Program Name</h4>
+            <h4 class="card-header text-center" id="programName">Program Name</h4>
             <div class="card-body">
                 <h5 class="card-title">Activity Name</h5>
                 <p class="card-text">Introductory information about program.</p>
                 <div class="button text-end">
-                    <button href="#" class="btn" type="button" onclick="asd()">Details</button>
+                    <a href="./SampleProgramDetails.html" class="btn" type="button">Details</a>
                 </div>
             </div>
         </div>
@@ -187,39 +187,6 @@
         <div class="card-group" id="sampleProgramCardGroup">
         </div>
     </div>
-
-
-    <!--<div class="card-sample">
-            <h4 class="card-header bg-warning text-center" id="Healthy Life">Program Name</h4>
-            <div class="card-body">
-                <h5 class="card-title" id="Running">Activity Name</h5>
-                <p class="card-text" id="Weight lose">Introductory information about program.</p>
-                <div class="button text-end">
-                    <a href="#" class="btn btn-warning">Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-sample">
-            <h4 class="card-header bg-warning text-center" id="Future Chef">Program Name</h4>
-            <div class="card-body">
-                <h5 class="card-title" id="Cooking" >Activity Name</h5>
-                <p class="card-text" id="Will be a chef">Introductory information about program.</p>
-                <div class="button text-end">
-                    <a href="#" class="btn btn-warning">Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-sample">
-            <h4 class="card-header bg-warning text-center" id="New Poet">Program Name</h4>
-            <div class="card-body">
-                <h5 class="card-title" id="Writing Poems">Activity Name</h5>
-                <p class="card-text" id="Write a poem everyday">Introductory information about program.</p>
-                <div class="button text-end">
-                    <a href="#" class="btn btn-warning">Details</a>
-                </div>
-            </div>
-        </div>-->
-
 
 
     <script>
@@ -238,6 +205,7 @@
                         testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
                         testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
                         testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
+                        testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
                         sampleProgramCardGroup.appendChild(testSampleProgramCard);
 
                     })
@@ -246,48 +214,10 @@
         displaySharedPrograms();
 
 
-        // function displaySharedPrograms() {
-        //     db.collection("SharedPrograms").get()
-        //         .then(allSharedPrograms => {
-        //             allSharedPrograms.forEach(doc => {
-        //                 var sharedProgramLabel = doc.data().Label;
-        //                 var sharedProgramActivityType = doc.data().ActivityType;
-        //                 var sharedProgramInfo = doc.data().Goal;
-        //                 document.getElementById(sharedProgramLabel).innerText = sharedProgramLabel;
-        //                 document.getElementById(sharedProgramActivityType).innerText = sharedProgramActivityType;
-        //                 document.getElementById(sharedProgramInfo).innerText = sharedProgramInfo;
-        //             })
-        //         })
-        // }
-        // displaySharedPrograms();
 
-
-
-        function asd() {
-            let Header = document.getElementById("xyz").value;
-
-
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    var currentUser = db.collection("users").doc(user.uid)
-                    var userID = user.uid;
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get user Email
-                            var userEmail = userDoc.data().email;
-                            // Start a new collection and add all data in it.
-                            db.collection("Headers").add({
-                                Header: Header
-                            });
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log("no user signed in");
-                }
-            });
+        function setCardData(id) {
+            localStorage.setItem('programName', id);
         }
-
 
     </script>
 </body>

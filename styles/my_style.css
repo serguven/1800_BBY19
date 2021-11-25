@@ -8,6 +8,7 @@ body {
 .navbar,
 .btn,
 .card-header,
+.created-card-header,
 .update {
     background-color: rgb(226, 191, 226);
 }
@@ -456,6 +457,7 @@ section {
 }
 
 
+
 /*-----------------(CreatedProgramDetails page css)---------*/
 #createdProgram {
     border-radius: 5px;
@@ -588,131 +590,6 @@ section {
 }
 
 
-
-
-
-
-
-/*-------------------------*/
-/*#wrapper-enter-personal-data {
-    background-color: whitesmoke;
-    list-style-type: none;
-    padding: 50px;
-    border-radius: 3px;
-    font-size: 25px;
-    margin: 300px 15% auto;
-    margin-top: -150px;
-}*/
-
-/*
-#wrapper-create-your-program {
-    background-color: whitesmoke;
-    list-style-type: none;
-    padding: 50px;
-    border-radius: 3px;
-    font-size: 25px;
-    margin: 300px 15% auto;
-    margin-top: 20px;
-}
-
-.form-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: .5em;
-}
-
-.form-row>label {
-    padding: .5em 1em .5em 0;
-    flex: 1;
-}
-
-.form-row>input {
-    flex: 0.65;
-    padding: .5em;
-}
-
-.form-row>select {
-    flex: 0.7;
-}
-
-.form-row>.input-group {
-    flex: 0.7;
-}
-
-.form-row-btn {
-    display: flex;
-    justify-content: center;
-}
-
-.form-row-btn>button {
-    color: white;
-    border: 0;
-    margin-top: 50px;
-    padding: .5em;
-    border-radius: 10px;
-}
-
-.form-row-btn>button:hover {
-    background-color: rgb(230, 158, 116);
-}
-
-    .form-row-btn>button:active {
-        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-            inset 2px 2px 3px rgba(0, 0, 0, .6);
-    }
-
-.dropdown-check-list {
-    display: inline-block;
-}
-
-.dropdown-check-list .anchor {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    padding: 5px 50px 5px 10px;
-    border: 1px solid #ccc;
-}
-
-.dropdown-check-list .anchor:after {
-    position: absolute;
-    content: "";
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    padding: 5px;
-    right: 10px;
-    top: 20%;
-    -moz-transform: rotate(-135deg);
-    -ms-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-}
-
-.dropdown-check-list .anchor:active:after {
-    right: 8px;
-    top: 21%;
-}
-
-.dropdown-check-list ul.items {
-    padding: 2px;
-    display: none;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-.dropdown-check-list ul.items li {
-    list-style: none;
-}
-
-.dropdown-check-list.visible .anchor {
-    color: rgb(226, 191, 226);
-}
-
-.dropdown-check-list.visible .items {
-    display: block;
-}*/
-
 .profile-picture img {
     max-width: 80px;
     height: auto;
@@ -744,24 +621,6 @@ section {
         margin-top: 10px;
     }
 
-
-
-
-    /*.form-row>label {
-        flex: 1;
-    }
-
-    .form-row>input {
-        flex: 0.5;
-    }
-
-    .form-row>select {
-        flex: 1;
-    }
-
-    .form-row>.input-group {
-        flex: 1/2;
-    }*/
 }
 
 @media screen and (max-width: 420px) {
