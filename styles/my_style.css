@@ -87,7 +87,7 @@ a {
     position: absolute;
     left: -150px;
     transform: translate(0, 10px);
-    background-color: #f3f1df;
+    background-color: #f8edeb;
     padding: 1.5rem;
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.322);
     width: auto;
@@ -101,7 +101,7 @@ a {
     top: -8px;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #bfbfbf transparent;
+    border-color: transparent transparent #dad7d7 transparent;
     transition-duration: 0.3s;
     transition-property: transform;
 }
@@ -113,6 +113,7 @@ a {
     transform: translate(0, -20px);
     transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
     margin-left: 50%;
+    border-radius: 10%;
 }
 
 .popover__message {
@@ -123,7 +124,7 @@ a {
 .month {
     padding: 70px 25px;
     width: 100%;
-    background: rgb(252, 186, 3);
+    background: #E2BFE2;
     text-align: center;
 }
 
@@ -180,7 +181,7 @@ a {
 
 .days li .active {
     padding: 5px;
-    background: rgb(252, 186, 3);
+    background: #E2BFE2;
     color: white !important
 }
 
@@ -347,8 +348,8 @@ section {
     margin-right: auto;
 }
 
-#createYourProgram > select,
-#createYourProgram > textarea {
+#createYourProgram>select,
+#createYourProgram>textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -356,7 +357,7 @@ section {
     resize: vertical;
 }
 
-#createYourProgram > label {
+#createYourProgram>label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
@@ -427,7 +428,7 @@ section {
     width: 58%;
 }
 
-#createYourProgram > .row>button {
+#createYourProgram>.row>button {
     color: white;
     border: 0;
     margin-top: 50px;
@@ -466,8 +467,8 @@ section {
     margin-right: auto;
 }
 
-#createdProgramData > select,
-#createdProgramData > textarea {
+#createdProgramData>select,
+#createdProgramData>textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -475,7 +476,7 @@ section {
     resize: vertical;
 }
 
-#createdProgramData > label {
+#createdProgramData>label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
@@ -510,7 +511,7 @@ section {
     width: 58%;
 }
 
-#createdProgram > .row > button {
+#createdProgram>.row>button {
     color: white;
     border: 0;
     margin-top: 50px;
@@ -532,8 +533,8 @@ section {
     margin-right: auto;
 }
 
-#sampleProgramData > select,
-#sampleProgramData > textarea {
+#sampleProgramData>select,
+#sampleProgramData>textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -541,7 +542,7 @@ section {
     resize: vertical;
 }
 
-#sampleProgramData > label {
+#sampleProgramData>label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
@@ -576,7 +577,7 @@ section {
     width: 58%;
 }
 
-#sampleProgram > .row > button {
+#sampleProgram>.row>button {
     color: white;
     border: 0;
     margin-top: 50px;
