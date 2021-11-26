@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Excelsior</title>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="./styles/my_style.css" rel="stylesheet">
+
+
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+
+
+    <!-- Link to the API keys for Excelsior Firebase -->
+    <script src="scripts/firebaseAPI.js"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
+                    alt="" width="100" height="100"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">Are you forgetting something?</a>
+                            <div class="popover__content">
+                                <p class="popover__message">Try out Gordon Ramsay's scrambled eggs recipe that you learn
+                                    on Halloween!
+                                </p>
+                                <img alt="scramble eggs" src="./images/crambledeggs.jpg" width="80%" height="80%">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">New Reminder's Voice</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form>
+                                    <p>Please select your new reminder's voice: </p>
+                                    <input type="radio" id="anime" name="fav_voice" value="anime">
+                                      <label for="remindersVoice1">Anime Voice</label><br>
+                                    <input type="radio" id="snow-white" name="fav_voice" value="snow-white">
+                                      <label for="remindersVoice2">Snow White</label><br>
+                                    <input type="radio" id="cruella" name="fav_voice" value="cruella">
+                                      <label for="remindersVoice3">Cruella de Vil</label><br>
+                                    <input type="radio" id="newsanchor" name="fav_voice" value="newsanchor">
+                                      <label for="remindersVoice4">News Anchor</label><br>
+                                    <input type="radio" id="natgeo-nar" name="fav_voice" value="natgeo-nar">
+                                      <label for="remindersVoice5">NatGeo Narrator</label><br>
+                                    <button type="submit" class="btn btn-lg" onclick="createVoiceReminder()">ALL
+                                        SET!</button>
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">Calendar</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <div class="month">
+                                        <ul>
+                                            <li class="prev">&#10094;</li>
+                                            <li class="next">&#10095;</li>
+                                            <li>
+                                                October<br>
+                                                <span style="font-size:18px">2021</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <ul class="weekdays" style="font-size: 10px;">
+                                        <li>Mo</li>
+                                        <li>Tu</li>
+                                        <li>We</li>
+                                        <li>Th</li>
+                                        <li>Fr</li>
+                                        <li>Sa</li>
+                                        <li>Su</li>
+                                    </ul>
+
+                                    <ul class="days">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li><span class="active">10</span></li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                        <li>14</li>
+                                        <li>15</li>
+                                        <li>16</li>
+                                        <li>17</li>
+                                        <li>18</li>
+                                        <li>19</li>
+                                        <li>20</li>
+                                        <li>21</li>
+                                        <li>22</li>
+                                        <li>23</li>
+                                        <li>24</li>
+                                        <li>25</li>
+                                        <li>26</li>
+                                        <li>27</li>
+                                        <li>28</li>
+                                        <li>29</li>
+                                        <li>30</li>
+                                        <li>31</li>
+                                    </ul>
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="reminder.html" class="popover__title">New Reminder</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Click Here To Create A New Reminder! </p>
+                    </li>
+                </ul>
+                <div class="profile-picture">
+                    <div class="popover__wrapper">
+                        <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+                        <div class="popover__content">
+                            <p class="popover__message">
+                            <form action="/action_page.php">
+                                <p>Click Here To Go To Your Profile! </p>
+                            </form>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><a href="login.html"
+                                class="btn-primary">Logout</a></button>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+    <h1 class="sample">CREATED REMINDERS</h1>
+    <template id="sampleProgramCardTemplate">
+        <div class="card-sample">
+            <a href="#" class="test"><h4 class="card-header text-center" id="programName">Program Name</h4></a>
+            <audio src="audio/anime-wow-sound-effect.mp3"  class="enter"></audio>
+            <div class="card-body">
+                <h5 class="card-title">Activity Name</h5>
+                <p class="card-text">Introductory information about program.</p>
+                <div class="button text-end">
+                    <a href="./CreatedReminderDetails.html" class="btn" type="button">Details</a>
+                </div>
+            </div>
+        </div> 
+    </template>
+
+    <div class="cards">
+        <div class="card-group" id="sampleProgramCardGroup">
+        </div>
+    </div>
+
+    
+
+
+    <script>
+
+        function displayCreatedPrograms() {
+            let sampleProgramCardTemplate = document.getElementById("sampleProgramCardTemplate");
+            let sampleProgramCardGroup = document.getElementById("sampleProgramCardGroup");
+
+            db.collection("reminders").get()
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+                .then(reminders => {
+                    if(currentUser == doc.data().useruid) {
+                       reminders.forEach(doc => {
+                        var reminderTitle = doc.data().Title;
+                        var sharedProgramLabel = doc.data().Description;
+                        var sharedProgramActivityType = doc.data().Day;
+                        var sharedProgramInfo = doc.data().Month;
+                        var sharedProgramYear = doc.data().Year;
+                        var sharedProgramVoice = doc.data().Time;
+                        let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
+                        
+                        testSampleProgramCard.querySelector('.card-header').innerHTML = reminderTitle;
+                        testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramLabel;
+                        testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramInfo + "/" + sharedProgramActivityType + "/" + sharedProgramYear;
+                        testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                        sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                        
+                    })
+
+                    let more = document.querySelector('.test');
+                    let audioArr = document.getElementsByTagName('audio');
+                    console.log(audioArr);
+                    more.addEventListener('mouseenter', ()=> {
+                    audioArr[0].play();
+                    console.log("it worked!");
+                    });
+ 
+                }
+                    
+                })
+            
+            firebase.auth().onAuthStateChanged(user => {
+                //console.log(user.uid);
+
+                
+                db.collection("reminders").get()
+                    .then(allSharedPrograms => {
+                        allSharedPrograms.forEach(doc => {
+                            var sharedProgramLabel = doc.data().Description;
+                            var sharedProgramActivityType = doc.data().Day;
+                            var sharedProgramInfo = doc.data().Month;
+                            var sharedProgramVoice = doc.data().Time;
+                            let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
+                                if (user.uid == doc.data().UserID) {
+                                    testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
+                                    testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
+                                    testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
+                                    testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                                    sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                                }
+
+                        })
+                    })
+            })
+        }
+        displayCreatedPrograms();
+        
+        
+
+
+
+        function setCardData(id) {
+            localStorage.setItem('programName', id);
+        }
+
+
+    </script>
+</body>
+
+</html>
