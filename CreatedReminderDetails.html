@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Excelsior</title>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Hind+Siliguri:wght@300&family=Patrick+Hand+SC&display=swap"
+        rel="stylesheet">
+    <link href="./styles/my_style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Firebase 8 related JS CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+
+    <!-- Link to the API keys for Excelsior Firebase -->
+    <script src="scripts/firebaseAPI.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
+                    alt="" width="100" height="100"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">Are you forgetting something?</a>
+                            <div class="popover__content">
+                                <p class="popover__message">Try out Gordon Ramsay's scrambled eggs recipe that you learn
+                                    on Halloween!
+                                </p>
+                                <img alt="scramble eggs" src="./images/crambledeggs.jpg" width="80%" height="80%">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">New Reminder's Voice</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Please select your new reminder's voice: </p>
+                                    <input type="radio" id="anime" name="fav_voice">
+                                      <label for="anime">Anime Voice</label><br>
+                                    <input type="radio" id="snow-white" name="fav_voice">
+                                      <label for="snow-white">Snow White</label><br>
+                                    <input type="radio" id="cruella" name="fav_voice">
+                                      <label for="cruella">Cruella de Vil</label><br>
+                                    <input type="radio" id="newsanchor" name="fav_voice">
+                                      <label for="newsanchor">News Anchor</label><br>
+                                    <input type="radio" id="natgeo-nar" name="fav_voice">
+                                      <label for="natgeo-nar">NatGeo Narattor</label><br>
+                                    <input type="submit" value="All Set!"
+                                        style="margin-top: 50px; border: none; border-radius: 10%; background-color: rgb(226, 191, 226);">
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="#" class="popover__title">Calendar</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <div class="month">
+                                        <ul>
+                                            <li class="prev">&#10094;</li>
+                                            <li class="next">&#10095;</li>
+                                            <li>
+                                                October<br>
+                                                <span style="font-size:18px">2021</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <ul class="weekdays" style="font-size: 10px;">
+                                        <li>Mo</li>
+                                        <li>Tu</li>
+                                        <li>We</li>
+                                        <li>Th</li>
+                                        <li>Fr</li>
+                                        <li>Sa</li>
+                                        <li>Su</li>
+                                    </ul>
+
+                                    <ul class="days">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li><span class="active">10</span></li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                        <li>14</li>
+                                        <li>15</li>
+                                        <li>16</li>
+                                        <li>17</li>
+                                        <li>18</li>
+                                        <li>19</li>
+                                        <li>20</li>
+                                        <li>21</li>
+                                        <li>22</li>
+                                        <li>23</li>
+                                        <li>24</li>
+                                        <li>25</li>
+                                        <li>26</li>
+                                        <li>27</li>
+                                        <li>28</li>
+                                        <li>29</li>
+                                        <li>30</li>
+                                        <li>31</li>
+                                    </ul>
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                          <a href="CreatedPrograms.html" class="popover__title">Programs</a>
+                          <div class="popover__content">
+                            <p class="popover__message">
+                            <form action="/action_page.php">
+                              <p>Click Here To See Your Programs </p>
+                      </li>
+
+                    <li class="nav-item">
+                        <div class="popover__wrapper">
+                            <a href="reminder.html" class="popover__title">New Reminder</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Click Here To Create A New Reminder! </p>
+                    </li>
+                </ul>
+
+                <div class="profile-picture">
+                    <div class="popover__wrapper">
+                        <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+                        <div class="popover__content">
+                            <p class="popover__message">
+                            <form action="/action_page.php">
+                                <p>Click Here To Go To Your Profile! </p>
+                            </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary"><a href="login.html"
+                            class="btn-primary">Logout</a></button>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+    <form id="createdProgram">
+        <h1 id="heading">Program Name</h1>
+        <fieldset id="createdProgramData" disabled>
+            <div class="row">
+                <div class="col-25">
+                    <label for="activityType">Activity Type</label>
+                </div>
+                <div class="col-75" id="activityRead">
+                    <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="goal">Goal</label>
+                </div>
+                <div class="col-75" id="goalValueRead">
+                    <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="start">Start Date</label>
+                </div>
+                <div class="col-75" id="startDateRead">
+                    <input type="date" id="startDate" name="chosenStartDate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="time">Activity Time</label>
+                </div>
+                <div class="col-75" id="timeRead">
+                    <input type="time" id="time" name="chosenTime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="repetition">Repeat</label>
+                </div>
+                <div class="col-75" id="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes()">
+                        <select>
+                            <option>Select an option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes">
+                        <label for="one">
+                            <input type="checkbox" id="one" value="Never" />Never</label>
+                        <label for="two">
+                            <input type="checkbox" id="two" value="Every Monday" />Every Monday</label>
+                        <label for="three">
+                            <input type="checkbox" id="three" value="Every Tuesday" />Every Tuesday</label>
+                        <label for="one">
+                            <input type="checkbox" id="four" value="Every Wednesday" />Every Wednesday</label>
+                        <label for="one">
+                            <input type="checkbox" id="five" value="Every Thursday" />Every Thursday</label>
+                        <label for="one">
+                            <input type="checkbox" id="six" value="Every Friday" />Every Friday</label>
+                        <label for="one">
+                            <input type="checkbox" id="seven" value="Every Saturday" />Every Saturday</label>
+                        <label for="one">
+                            <input type="checkbox" id="eight" value="Every Sunday" />Every Sunday</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="reminder">Reminder Voice</label>
+                </div>
+                <div class="col-75" id="reminderVoiceRead">
+                    <select id="reminderVoice" aria-label="Default select example">
+                        <option selected>Reminder</option>
+                        <option value="Anime Voice">Anime Voice</option>
+                        <option value="Snow White">Snow White</option>
+                        <option value="Cruella de Vil">Cruella de Vil</option>
+                        <option value="News Anchor">News Anchor</option>
+                        <option value="NatGeo Narrator">NatGeo Narrator</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="notes">Notes</label>
+                </div>
+                <div class="col-75" id="notesRead">
+                    <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
+                        style="height:200px"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row">
+            <button class="update" type="button" onclick="editUserInfo()">Edit</button>
+            <button class="update" type="button" onclick="saveUserInfo()">Save</button>
+        </div>
+
+    </form>
+
+
+
+
+
+    <!--Javascript starts here-->
+    <script>
+        var expanded = false;
+
+        function showCheckboxes() {
+            var checkboxes = document.getElementById("checkboxes");
+            if (!expanded) {
+                checkboxes.style.display = "block";
+                expanded = true;
+            } else {
+                checkboxes.style.display = "none";
+                expanded = false;
+            }
+        }
+
+        //---------------------------------------------------//
+        let programName = localStorage.getItem("programName");
+
+
+        db.collection("reminders").where("Label", "==", programName)
+            .get()
+            .then(queryreminders => {
+                //see how many results you have got from the query
+                size = queryreminders.size;
+                // get the documents of query
+                SamplePrograms = queryreminders.docs;
+
+                // We want to have one document per hike, so if the the result of
+                //the query is more than one, we can check it right now and clean the DB if needed.
+                if (size = 1) {
+                    var thisSampleProgram = SamplePrograms[0].data();
+
+                    label = thisSampleProgram.Label;
+                    activityType = thisSampleProgram.ActivityType;
+                    goal = thisSampleProgram.Goal;
+                    startDate = thisSampleProgram.StartDate;
+                    activityTime = thisSampleProgram.ActivityTime;
+                    repeat = thisSampleProgram.Repeat;
+                    reminderVoice = thisSampleProgram.ReminderVoice;
+                    notes = thisSampleProgram.Notes;
+
+                    document.getElementById("heading").innerHTML = label;
+                    document.getElementById("activityRead").innerHTML = activityType;
+                    document.getElementById("goalValueRead").innerHTML = goal;
+                    document.getElementById("startDateRead").innerHTML = startDate;
+                    document.getElementById("timeRead").innerHTML = activityTime;
+                    document.getElementById("multiselect").innerHTML = repeat;
+                    document.getElementById("reminderVoiceRead").innerHTML = reminderVoice;
+                    document.getElementById("notesRead").innerHTML = notes;
+
+
+                } else {
+                    console.log("Query has more than one data")
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -81,10 +81,10 @@
             db.collection("users").doc(user.uid).set({
               name: user.displayName,
               email: user.email,
-              gender: null,
-              age: null,
-              height: null,
-              weight: null
+              gender: "Gender",
+              age: 00,
+              height: 00,
+              weight: 00
             }).then(function () {
               console.log("New user added to firestore");
               window.location.assign("main.html");

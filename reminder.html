@@ -178,79 +178,160 @@
   </nav>
 
   <section>
-    <form>
-      <div id="roar">
-        <h1>Let's Start Your New Habits With A Goal Name!</h1>
+    <form id="createYourProgram">
+      <h1 id="heading">Create your Reminder</h1>
+      <div class="row">
+          <div class="col-25">
+              <label for="label">Label</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your Reminder">
+          </div>
       </div>
-      <div id="nameOfGoal">
-        <p>Goal Name: </p>
-        <input type="text" id="title" placeholder="Goal Name" aria-label="Username" aria-describedby="basic-addon1">
+      <div class="row">
+          <div class="col-25">
+              <label for="activityType">Activity Type</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
+          </div>
       </div>
-      <div id="reminderCalendar">
-        <p>Reminder Date:</p>
-        <input min="1" max="12" type="number" id="reminder-month" name="number" placeholder="Month">
-        <input min="1" max="31" type="number" id="remind-day" name="number" placeholder="Day">
-        <input min="2021" max="2150" type="number" id="reminder-time" name="number" placeholder="Year">
-        <br>
-        <label for="appt">Select a time:</label>
-        <p><input type="time" id="appt" name="appt">
-        <input type="submit" onclick="printTime()">
-      </p>
-        
+      <div class="row">
+          <div class="col-25">
+              <label for="goal">Goal</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
+          </div>
       </div>
-      <div id="ringtoneVolume">
-        <p>Ringtone Volume: </p>
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-          <p>Volume: <span id="demo"> %</span></p>
-        </div>
+      <div class="row">
+          <div class="col-25">
+              <label for="start">Start Date</label>
+          </div>
+          <div class="col-75">
+              <input type="date" id="startDate" name="chosenStartDate">
+          </div>
       </div>
-      <div id="finished">
-        <button type="button" class="btn btn-lg" onclick="createReminder()">FINISHED</button>
+      <div class="row">
+          <div class="col-25">
+              <label for="time">Activity Time</label>
+          </div>
+          <div class="col-75">
+              <input type="time" id="time" name="chosenTime">
+          </div>
       </div>
-    </form>
+      <div class="row">
+          <div class="col-25">
+              <label for="reminder">Reminder Voice</label>
+          </div>
+          <div class="col-75">
+              <select id="reminderVoice" aria-label="Default select example">
+                  <option selected>Reminder</option>
+                  <option value="Anime Voice">Anime Voice</option>
+                  <option value="Snow White">Snow White</option>
+                  <option value="Cruella de Vil">Cruella de Vil</option>
+                  <option value="News Anchor">News Anchor</option>
+                  <option value="NatGeo Narrator">NatGeo Narrator</option>
+              </select>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+              <label for="notes">Notes</label>
+          </div>
+          <div class="col-75">
+              <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
+                  style="height:200px"></textarea>
+          </div>
+      </div>
+      <div class="row">
+        <button class="update" type="button" onclick="createReminder(); alert('New reminder is created')">Create
+            Program</button>
+    </div>
+      </form>
   </section>
 
   <script>
+
     function createReminder() {
-      let Title = document.getElementById("title").value;
-      let Month = document.getElementById("reminder-month").value;
-      let Day = document.getElementById("remind-day").value;
-      let Time = document.getElementById("appt").value;
-      let Volume = document.getElementById("myRange").value;
-
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          var currentUser = db.collection("users").doc(user.uid)
-          var userID = user.uid;
-
-          currentUser.get()
-            .then(userDoc => {
-              var userEmail = userDoc.data().email;
-
-              db.collection("reminders").add({
-                UserId: userID,
-                UserEmail: userEmail,
-                Month: Month,
-                Day: Day,
-                Description: Title,
-                Time: Time,
-                Volume: Volume
-              });
-            })
-        } else {
-          console.log("no user signed in.");
+            let Label = document.getElementById("labelValue").value;
+            let ActivityType = document.getElementById("activity").value;
+            let Goal = document.getElementById("goalValue").value;
+            let StartDate = document.getElementById("startDate").value;
+            let ActivityTime = document.getElementById("time").value;
+            let ReminderVoice = document.getElementById("reminderVoice").value;
+            let Notes = document.getElementById("notes").value
+            
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid)
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            // Start a new collection and add all data in it.
+                            db.collection("reminders").add({
+                                UserID: userID,
+                                UserEmail: userEmail,
+                                Label: Label,
+                                ActivityType: ActivityType,
+                                Goal: Goal,
+                                StartDate: StartDate,
+                                ActivityTime: ActivityTime,
+                                ReminderVoice: ReminderVoice,
+                                Notes: Notes
+                            });
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
+                }
+            });
         }
-      });
-    }
+    
+    
+    
+    //         function createReminder() {
+    //   let Title = document.getElementById("title").value;
+    //   let Month = document.getElementById("reminder-month").value;
+    //   let Day = document.getElementById("remind-day").value;
+    //   let Time = document.getElementById("appt").value;
+    //   let Volume = document.getElementById("myRange").value;
 
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
+    //   firebase.auth().onAuthStateChanged(user => {
+    //     if (user) {
+    //       var currentUser = db.collection("users").doc(user.uid)
+    //       var userID = user.uid;
 
-    slider.oninput = function () {
-      output.innerHTML = this.value + "%";
-    }
+    //       currentUser.get()
+    //         .then(userDoc => {
+    //           var userEmail = userDoc.data().email;
+
+    //           db.collection("reminders").add({
+    //             UserId: userID,
+    //             UserEmail: userEmail,
+    //             Month: Month,
+    //             Day: Day,
+    //             Description: Title,
+    //             Time: Time,
+    //             Volume: Volume
+    //           });
+    //         })
+    //     } else {
+    //       console.log("no user signed in.");
+    //     }
+    //   });
+    // }
+
+    // var slider = document.getElementById("myRange");
+    // var output = document.getElementById("demo");
+    // output.innerHTML = slider.value;
+
+    // slider.oninput = function () {
+    //   output.innerHTML = this.value + "%";
+    // }
 
   </script>
 </body>
