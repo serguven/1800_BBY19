@@ -153,11 +153,11 @@
 
                     <li class="nav-item">
                         <div class="popover__wrapper">
-                            <a href="reminder.html" class="popover__title">New Reminder</a>
+                            <a href="reminders.html" class="popover__title">Reminders</a>
                             <div class="popover__content">
                                 <p class="popover__message">
                                 <form action="/action_page.php">
-                                    <p>Click Here To Create A New Reminder! </p>
+                                    <p>Click Here To See Your Reminders </p>
                     </li>
                 </ul>
                 <div class="profile-picture">
@@ -180,14 +180,18 @@
             </div>
     </nav>
 
+    <div class="new-program">
+        <button type="button" class="btn btn-info"><a href="reminder.html"> New Reminder</a></button>
+    </div>
+
     <h1 class="sample">CREATED REMINDERS</h1>
     <template id="sampleProgramCardTemplate">
         <div class="card-sample">
-            <a href="#" class="test"><h4 class="card-header text-center" id="programName">Program Name</h4></a>
+            <a href="#" class="test"><h4 class="card-header text-center" id="programName">Reminder Name</h4></a>
             <audio src="audio/anime-wow-sound-effect.mp3"  class="enter"></audio>
             <div class="card-body">
                 <h5 class="card-title">Activity Name</h5>
-                <p class="card-text">Introductory information about program.</p>
+                <p class="card-text">Introductory information about reminder.</p>
                 <div class="button text-end">
                     <a href="./CreatedReminderDetails.html" class="btn" type="button">Details</a>
                 </div>
