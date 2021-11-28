@@ -19,6 +19,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 
 
 
@@ -170,55 +171,98 @@
             </div>
     </nav>
 
-    <h1 class="sample">CREATED PROGRAMS</h1>
+    <h1 class="sample">CREATED REMINDERS</h1>
     <template id="sampleProgramCardTemplate">
         <div class="card-sample">
-            <h4 class="card-header text-center" id="programName">Program Name</h4>
+            <a href="#" class="test"><h4 class="card-header text-center" id="programName">Program Name</h4></a>
+            <audio src="audio/anime-wow-sound-effect.mp3"  class="enter"></audio>
             <div class="card-body">
                 <h5 class="card-title">Activity Name</h5>
                 <p class="card-text">Introductory information about program.</p>
                 <div class="button text-end">
-                    <a href="./CreatedProgramDetails.html" class="btn" type="button">Details</a>
+                    <a href="./CreatedReminderDetails.html" class="btn" type="button">Details</a>
                 </div>
             </div>
-        </div>
+        </div> 
     </template>
+
     <div class="cards">
         <div class="card-group" id="sampleProgramCardGroup">
         </div>
     </div>
 
+    
+
 
     <script>
+
         function displayCreatedPrograms() {
             let sampleProgramCardTemplate = document.getElementById("sampleProgramCardTemplate");
             let sampleProgramCardGroup = document.getElementById("sampleProgramCardGroup");
 
+            db.collection("reminders").get()
 
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+                .then(reminders => {
+                    if(currentUser == doc.data().useruid) {
+                       reminders.forEach(doc => {
+                        var reminderTitle = doc.data().Title;
+                        var sharedProgramLabel = doc.data().Description;
+                        var sharedProgramActivityType = doc.data().Day;
+                        var sharedProgramInfo = doc.data().Month;
+                        var sharedProgramYear = doc.data().Year;
+                        var sharedProgramVoice = doc.data().Time;
+                        let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
+                        
+                        testSampleProgramCard.querySelector('.card-header').innerHTML = reminderTitle;
+                        testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramLabel;
+                        testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramInfo + "/" + sharedProgramActivityType + "/" + sharedProgramYear;
+                        testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                        sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                        
+                    })
+
+                    let more = document.querySelector('.test');
+                    let audioArr = document.getElementsByTagName('audio');
+                    console.log(audioArr);
+                    more.addEventListener('mouseenter', ()=> {
+                    audioArr[0].play();
+                    console.log("it worked!");
+                    });
+ 
+                }
+                    
+                })
+            
             firebase.auth().onAuthStateChanged(user => {
                 //console.log(user.uid);
 
-
-                db.collection("SamplePrograms").get()
+                
+                db.collection("reminders").get()
                     .then(allSharedPrograms => {
                         allSharedPrograms.forEach(doc => {
-                            var sharedProgramLabel = doc.data().Label;
-                            var sharedProgramActivityType = doc.data().ActivityType;
-                            var sharedProgramInfo = doc.data().Goal;
+                            var sharedProgramLabel = doc.data().Description;
+                            var sharedProgramActivityType = doc.data().Day;
+                            var sharedProgramInfo = doc.data().Month;
+                            var sharedProgramVoice = doc.data().Time;
                             let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
-                            if (user.uid == doc.data().UserID) {
-                                testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
-                                testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
-                                testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
-                                testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
-                                sampleProgramCardGroup.appendChild(testSampleProgramCard);
-                            }
+                                if (user.uid == doc.data().UserID) {
+                                    testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
+                                    testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
+                                    testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
+                                    testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                                    sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                                }
 
                         })
                     })
             })
         }
         displayCreatedPrograms();
+        
+        
 
 
 
