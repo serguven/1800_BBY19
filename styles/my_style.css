@@ -524,6 +524,11 @@ section {
     margin-right: auto;
 }
 
+.new-program {
+    text-align: right;
+    
+}
+
 
 /*-----------(SampleProgramDetails page)-------*/
 #sampleProgram {

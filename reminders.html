@@ -203,10 +203,8 @@
             db.collection("reminders").get()
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
             //get the document for current user.
                 .then(reminders => {
-                    if(currentUser == doc.data().useruid) {
                        reminders.forEach(doc => {
                         var reminderTitle = doc.data().Title;
                         var sharedProgramLabel = doc.data().Description;
@@ -232,7 +230,7 @@
                     console.log("it worked!");
                     });
  
-                }
+                
                     
                 })
             
@@ -248,13 +246,12 @@
                             var sharedProgramInfo = doc.data().Month;
                             var sharedProgramVoice = doc.data().Time;
                             let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
-                                if (user.uid == doc.data().UserID) {
                                     testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
                                     testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
                                     testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
                                     testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
                                     sampleProgramCardGroup.appendChild(testSampleProgramCard);
-                                }
+                                
 
                         })
                     })
