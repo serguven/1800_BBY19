@@ -188,7 +188,7 @@
     <template id="sampleProgramCardTemplate">
         <div class="card-sample">
             <a href="#" class="test"><h4 class="card-header text-center" id="programName">Reminder Name</h4></a>
-            <audio src="audio/anime-wow-sound-effect.mp3"  class="enter"></audio>
+            <audio src="audio/beep.mp3"  class="enter"></audio>
             <div class="card-body">
                 <h5 class="card-title">Activity Name</h5>
                 <p class="card-text">Introductory information about reminder.</p>
@@ -213,60 +213,33 @@
             let sampleProgramCardTemplate = document.getElementById("sampleProgramCardTemplate");
             let sampleProgramCardGroup = document.getElementById("sampleProgramCardGroup");
 
-            db.collection("reminders").get()
-
-            //go to the correct user document by referencing to the user uid
-            //get the document for current user.
-                .then(reminders => {
-                       reminders.forEach(doc => {
-                        var reminderTitle = doc.data().Title;
-                        var sharedProgramLabel = doc.data().Description;
-                        var sharedProgramActivityType = doc.data().Day;
-                        var sharedProgramInfo = doc.data().Month;
-                        var sharedProgramYear = doc.data().Year;
-                        var sharedProgramVoice = doc.data().Time;
-                        let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
-                        
-                        testSampleProgramCard.querySelector('.card-header').innerHTML = reminderTitle;
-                        testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramLabel;
-                        testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramInfo + "/" + sharedProgramActivityType + "/" + sharedProgramYear;
-                        testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
-                        sampleProgramCardGroup.appendChild(testSampleProgramCard);
-                        
-                    })
-
-                    let more = document.querySelector('.test');
-                    let audioArr = document.getElementsByTagName('audio');
-                    console.log(audioArr);
-                    more.addEventListener('mouseenter', ()=> {
-                    audioArr[0].play();
-                    console.log("it worked!");
-                    });
- 
-                
-                    
-                })
-            
             firebase.auth().onAuthStateChanged(user => {
                 //console.log(user.uid);
 
-                
+
                 db.collection("reminders").get()
                     .then(allSharedPrograms => {
                         allSharedPrograms.forEach(doc => {
-                            var sharedProgramLabel = doc.data().Description;
-                            var sharedProgramActivityType = doc.data().Day;
-                            var sharedProgramInfo = doc.data().Month;
-                            var sharedProgramVoice = doc.data().Time;
+                            var sharedProgramLabel = doc.data().Label;
+                            var sharedProgramActivityType = doc.data().ActivityType;
+                            var sharedProgramInfo = doc.data().Goal;
                             let testSampleProgramCard = sampleProgramCardTemplate.content.cloneNode(true);
-                                    testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
-                                    testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
-                                    testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
-                                    testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
-                                    sampleProgramCardGroup.appendChild(testSampleProgramCard);
-                                
+                            if (user.uid == doc.data().UserID) {
+                                testSampleProgramCard.querySelector('.card-header').innerHTML = sharedProgramLabel;
+                                testSampleProgramCard.querySelector('.card-title').innerHTML = sharedProgramActivityType;
+                                testSampleProgramCard.querySelector('.card-text').innerHTML = sharedProgramInfo;
+                                testSampleProgramCard.querySelector('a').onclick = () => setCardData(sharedProgramLabel);
+                                sampleProgramCardGroup.appendChild(testSampleProgramCard);
+                            }
 
                         })
+                        let more = document.querySelector('.test');
+                        let audioArr = document.getElementsByTagName('audio');
+                        console.log(audioArr);
+                        more.addEventListener('mouseenter', ()=> {
+                        audioArr[0].play();
+                        console.log("it worked!");
+                        });
                     })
             })
         }
