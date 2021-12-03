@@ -4,6 +4,8 @@
 <head>
   <title>Excelsior</title>
   <meta charset="utf-8" />
+
+  <!-- Custom styles for this page -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,16 +32,19 @@
 </head>
 
 <body>
+  <!-- Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png" alt=""
-          width="100" height="100"></a>
+      <!-- Logo -->
+      <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
+          alt="" width="100" height="100"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Get Reminder -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">Are you forgetting something?</a>
@@ -50,6 +55,7 @@
               </div>
             </div>
           </li>
+          <!-- Choose new reminder's voice -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">New Reminder's Voice</a>
@@ -73,6 +79,7 @@
               </div>
             </div>
           </li>
+          <!-- Calendar -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">Calendar</a>
@@ -139,160 +146,168 @@
             </div>
           </li>
 
+          <!-- See your created program -->
           <li class="nav-item">
             <div class="popover__wrapper">
-              <a href="CreatedPrograms.html" class="popover__title">Programs</a>
+              <a href="created-programs.html" class="popover__title">Programs</a>
               <div class="popover__content">
                 <p class="popover__message">
                 <form action="/action_page.php">
                   <p>Click Here To See Your Programs </p>
           </li>
 
+          <!-- See your reminders -->
           <li class="nav-item">
             <div class="popover__wrapper">
-                <a href="reminders.html" class="popover__title">Reminders</a>
-                <div class="popover__content">
-                    <p class="popover__message">
-                    <form action="/action_page.php">
-                        <p>Click Here To See Your Reminders </p>
-        </li>
+              <a href="reminders.html" class="popover__title">Reminders</a>
+              <div class="popover__content">
+                <p class="popover__message">
+                <form action="/action_page.php">
+                  <p>Click Here To See Your Reminders </p>
+          </li>
         </ul>
+        <!-- Profile picture -->
         <div class="profile-picture">
           <div class="popover__wrapper">
-            <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+            <a href="profile.html"><img src="images/profile_avatar_placeholder.png" id="photo"></a>
             <div class="popover__content">
               <p class="popover__message">
               <form action="/action_page.php">
                 <p>Click Here To Go To Your Profile! </p>
               </form>
               </p>
-              </div>
-        <form class="d-flex">
-          <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
-          <label class="btn btn-primary" for="btn-check"><a href="login.html">Logout</a></label>
-        </form>
+            </div>
+            <!-- Log out -->
+            <form class="d-flex">
+              <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
+              <label class="btn btn-primary" for="btn-check"><a href="login.html">Logout</a></label>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </div>
   </nav>
 
+  <!-- Create new reminder -->
   <section>
     <form id="createYourProgram">
       <h1 id="heading">Create your Reminder</h1>
       <div class="row">
-          <div class="col-25">
-              <label for="label">Label</label>
-          </div>
-          <div class="col-75">
-              <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your Reminder">
-          </div>
+        <div class="col-25">
+          <label for="label">Label</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="labelValue" name="chosenLabel" placeholder="Label your Reminder">
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="activityType">Activity Type</label>
-          </div>
-          <div class="col-75">
-              <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
-          </div>
+        <div class="col-25">
+          <label for="activityType">Activity Type</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="activity" name="chosenActivity" placeholder="Choose your activity">
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="goal">Goal</label>
-          </div>
-          <div class="col-75">
-              <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
-          </div>
+        <div class="col-25">
+          <label for="goal">Goal</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="goalValue" name="chosenGoal" placeholder="Specify your goal">
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="start">Start Date</label>
-          </div>
-          <div class="col-75">
-              <input type="date" id="startDate" name="chosenStartDate">
-          </div>
+        <div class="col-25">
+          <label for="start">Start Date</label>
+        </div>
+        <div class="col-75">
+          <input type="date" id="startDate" name="chosenStartDate">
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="time">Activity Time</label>
-          </div>
-          <div class="col-75">
-              <input type="time" id="time" name="chosenTime">
-          </div>
+        <div class="col-25">
+          <label for="time">Activity Time</label>
+        </div>
+        <div class="col-75">
+          <input type="time" id="time" name="chosenTime">
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="reminder">Reminder Voice</label>
-          </div>
-          <div class="col-75">
-              <select id="reminderVoice" aria-label="Default select example">
-                  <option selected>Reminder</option>
-                  <option value="Anime Voice">Anime Voice</option>
-                  <option value="Snow White">Snow White</option>
-                  <option value="Cruella de Vil">Cruella de Vil</option>
-                  <option value="News Anchor">News Anchor</option>
-                  <option value="NatGeo Narrator">NatGeo Narrator</option>
-              </select>
-          </div>
+        <div class="col-25">
+          <label for="reminder">Reminder Voice</label>
+        </div>
+        <div class="col-75">
+          <select id="reminderVoice" aria-label="Default select example">
+            <option selected>Reminder</option>
+            <option value="Anime Voice">Anime Voice</option>
+            <option value="Snow White">Snow White</option>
+            <option value="Cruella de Vil">Cruella de Vil</option>
+            <option value="News Anchor">News Anchor</option>
+            <option value="NatGeo Narrator">NatGeo Narrator</option>
+          </select>
+        </div>
       </div>
       <div class="row">
-          <div class="col-25">
-              <label for="notes">Notes</label>
-          </div>
-          <div class="col-75">
-              <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
-                  style="height:200px"></textarea>
-          </div>
+        <div class="col-25">
+          <label for="notes">Notes</label>
+        </div>
+        <div class="col-75">
+          <textarea id="notes" name="writtenNotes" placeholder="Extra notes about the activity"
+            style="height:200px"></textarea>
+        </div>
       </div>
       <div class="row">
         <button class="update" type="button" onclick="createReminder(); alert('New reminder is created')">Create
-            Reminder</button>
-    </div>
-      </form>
+          Reminder</button>
+      </div>
+    </form>
   </section>
 
+  <!--------------------------------------------------------------------->
+  <!-- JS files: JavaScript functions included here    -->
+  <!--------------------------------------------------------------------->
   <script>
-
+    // Create new reminders
     function createReminder() {
-            let Label = document.getElementById("labelValue").value;
-            let ActivityType = document.getElementById("activity").value;
-            let Goal = document.getElementById("goalValue").value;
-            let StartDate = document.getElementById("startDate").value;
-            let ActivityTime = document.getElementById("time").value;
-            let ReminderVoice = document.getElementById("reminderVoice").value;
-            let Notes = document.getElementById("notes").value
-            
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    var currentUser = db.collection("users").doc(user.uid)
-                    var userID = user.uid;
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get user Email
-                            var userEmail = userDoc.data().email;
-                            // Start a new collection and add all data in it.
-                            db.collection("reminders").add({
-                                UserID: userID,
-                                UserEmail: userEmail,
-                                Label: Label,
-                                ActivityType: ActivityType,
-                                Goal: Goal,
-                                StartDate: StartDate,
-                                ActivityTime: ActivityTime,
-                                ReminderVoice: ReminderVoice,
-                                Notes: Notes
-                            });
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log("no user signed in");
-                }
-            });
+      let Label = document.getElementById("labelValue").value;
+      let ActivityType = document.getElementById("activity").value;
+      let Goal = document.getElementById("goalValue").value;
+      let StartDate = document.getElementById("startDate").value;
+      let ActivityTime = document.getElementById("time").value;
+      let ReminderVoice = document.getElementById("reminderVoice").value;
+      let Notes = document.getElementById("notes").value
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          var currentUser = db.collection("users").doc(user.uid)
+          var userID = user.uid;
+          //get the document for current user.
+          currentUser.get()
+            .then(userDoc => {
+              //get user Email
+              var userEmail = userDoc.data().email;
+              // Start a new collection and add all data in it.
+              db.collection("reminders").add({
+                UserID: userID,
+                UserEmail: userEmail,
+                Label: Label,
+                ActivityType: ActivityType,
+                Goal: Goal,
+                StartDate: StartDate,
+                ActivityTime: ActivityTime,
+                ReminderVoice: ReminderVoice,
+                Notes: Notes
+              });
+            })
+        } else {
+          // No user is signed in.
+          console.log("no user signed in");
         }
-    
-    
-    
+      });
+    }
+
+
+
     //         function createReminder() {
     //   let Title = document.getElementById("title").value;
     //   let Month = document.getElementById("reminder-month").value;

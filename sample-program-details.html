@@ -4,6 +4,8 @@
 <head>
     <title>Excelsior</title>
     <meta charset="utf-8" />
+
+    <!-- Custom styles for this page -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +32,10 @@
 </head>
 
 <body>
+    <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
+            <!-- Logo -->
             <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
                     alt="" width="100" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -41,6 +45,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Get Reminder -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Are you forgetting something?</a>
@@ -52,6 +57,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Choose new reminder's voice -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">New Reminder's Voice</a>
@@ -76,6 +82,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Calendar -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Calendar</a>
@@ -142,16 +149,17 @@
                         </div>
                     </li>
 
+                    <!-- See your created program -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
-                          <a href="CreatedPrograms.html" class="popover__title">Programs</a>
-                          <div class="popover__content">
-                            <p class="popover__message">
-                            <form action="/action_page.php">
-                              <p>Click Here To See Your Programs </p>
-                      </li>
-
-                      <li class="nav-item">
+                            <a href="created-programs.html" class="popover__title">Programs</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Click Here To See Your Programs </p>
+                    </li>
+                    <!-- See your created reminder -->
+                    <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="reminders.html" class="popover__title">Reminders</a>
                             <div class="popover__content">
@@ -161,9 +169,10 @@
                     </li>
                 </ul>
 
+                <!-- Profile picture -->
                 <div class="profile-picture">
                     <div class="popover__wrapper">
-                        <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+                        <a href="profile.html"><img src="images/profile_avatar_placeholder.png" id="photo"></a>
                         <div class="popover__content">
                             <p class="popover__message">
                             <form action="/action_page.php">
@@ -173,18 +182,19 @@
                         </div>
                     </div>
                 </div>
+                <!-- Log out -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary"><a href="login.html"
                             class="btn-primary">Logout</a></button>
                 </div>
             </div>
         </div>
-
     </nav>
 
-    <form id="createdProgram">
-        <h1 id="heading">Program Name</h1>
-        <fieldset id="createdProgramData" disabled>
+    <!-- Sample program details -->
+    <form id="sampleProgram">
+        <h1 id="heading"></h1>
+        <fieldset id="sampleProgramData" disabled>
             <div class="row">
                 <div class="col-25">
                     <label for="activityType">Activity Type</label>
@@ -255,11 +265,11 @@
                 <div class="col-75" id="reminderVoiceRead">
                     <select id="reminderVoice" aria-label="Default select example">
                         <option selected>Reminder</option>
-                        <option value="Anime Voice">Anime Voice</option>
-                        <option value="Snow White">Snow White</option>
-                        <option value="Cruella de Vil">Cruella de Vil</option>
-                        <option value="News Anchor">News Anchor</option>
-                        <option value="NatGeo Narrator">NatGeo Narrator</option>
+                        <option value="1">Anime Voice</option>
+                        <option value="2">Snow White</option>
+                        <option value="3">Cruella de Vil</option>
+                        <option value="4">News Anchor</option>
+                        <option value="5">NatGeo Narrator</option>
                     </select>
                 </div>
             </div>
@@ -278,14 +288,16 @@
             <button class="update" type="button" onclick="saveUserInfo()">Save</button>
         </div>
 
+
     </form>
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
 
-
-
-
-    <!--Javascript starts here-->
     <script>
+
+        // Show check boxes for the created programs
         var expanded = false;
 
         function showCheckboxes() {
@@ -299,31 +311,34 @@
             }
         }
 
-        //---------------------------------------------------//
+
+        //-------------------------------------------------//
+
+        // Add program to firestore
         let programName = localStorage.getItem("programName");
 
 
-        db.collection("reminders").where("Label", "==", programName)
+        db.collection("SharedPrograms").where("Label", "==", programName)
             .get()
-            .then(queryreminders => {
+            .then(querySharedProgram => {
                 //see how many results you have got from the query
-                size = queryreminders.size;
+                size = querySharedProgram.size;
                 // get the documents of query
-                SamplePrograms = queryreminders.docs;
+                SharedPrograms = querySharedProgram.docs;
 
                 // We want to have one document per hike, so if the the result of
                 //the query is more than one, we can check it right now and clean the DB if needed.
                 if (size = 1) {
-                    var thisSampleProgram = SamplePrograms[0].data();
+                    var thisSharedProgram = SharedPrograms[0].data();
 
-                    label = thisSampleProgram.Label;
-                    activityType = thisSampleProgram.ActivityType;
-                    goal = thisSampleProgram.Goal;
-                    startDate = thisSampleProgram.StartDate;
-                    activityTime = thisSampleProgram.ActivityTime;
-                    repeat = thisSampleProgram.Repeat;
-                    reminderVoice = thisSampleProgram.ReminderVoice;
-                    notes = thisSampleProgram.Notes;
+                    label = thisSharedProgram.Label;
+                    activityType = thisSharedProgram.ActivityType;
+                    goal = thisSharedProgram.Goal;
+                    startDate = thisSharedProgram.StartDate;
+                    activityTime = thisSharedProgram.ActivityTime;
+                    repeat = thisSharedProgram.Repeat;
+                    reminderVoice = thisSharedProgram.ReminderVoice;
+                    notes = thisSharedProgram.Notes;
 
                     document.getElementById("heading").innerHTML = label;
                     document.getElementById("activityRead").innerHTML = activityType;
@@ -334,7 +349,6 @@
                     document.getElementById("reminderVoiceRead").innerHTML = reminderVoice;
                     document.getElementById("notesRead").innerHTML = notes;
 
-
                 } else {
                     console.log("Query has more than one data")
                 }
@@ -342,13 +356,7 @@
             .catch((error) => {
                 console.log("Error getting documents: ", error);
             });
-
-
-
     </script>
-
-
-
 
 </body>
 
