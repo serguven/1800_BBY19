@@ -408,7 +408,7 @@ section {
     display: none;
     border: 1px #dadada solid;
     width: 58%;
-    margin-left: 320px;
+    margin-left: 20.8vw;
 }
 
 #checkboxes label {
@@ -612,6 +612,8 @@ section {
         width: 13.1%;
     }
 
+
+    /*---------------create-your-program page -----------*/
     #createYourProgram>.row>.col-25 {
         width: 100%;
         margin-top: 0;
@@ -622,10 +624,62 @@ section {
         margin-top: 0;
     }
 
-    #createYourProgram>.row>.row>button {
+
+    #createYourProgram .row .col-75 #labelValue {
         width: 100%;
-        margin-top: 10px;
     }
+
+    #createYourProgram .row .col-75 #activity {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 #goalValue {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 #startDate {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 #time {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 select {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 #checkboxes {
+        margin-left: 0;
+        width: 100%;
+    }
+
+
+    #createYourProgram .row .col-75 #reminderVoice {
+        width: 100%;
+    }
+
+    #createYourProgram .row .col-75 #notes {
+        width: 100%;
+    }
+
+    #createYourProgram .row button {
+        width: 100%;
+    }
+
+
+    /*------- (sample-program-details page) ---------*/
+    #sampleProgram .row button {
+        width: 100%;
+    }
+
+    /*---------(created-program-details page) ---------*/
+    #createdProgram .row button {
+        width: 100%;
+    }
+
+
+
 
 }
 
