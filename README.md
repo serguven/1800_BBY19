@@ -60,3 +60,26 @@ It has the following subfolders and files:
     /haiya-bang-dream.mp3    # Anime voice extra
     /Pikachu Echo.mp3        # Pikachu with echo voice
     /Pikachu.mp3             # Pikachu voice
+
+Firebase hosting files:
+├── .firebase
+     ├── .firebase
+	/hosting..cache
+├── .firebaserc
+├── 404.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+├── storage.rules
+
+## Contact
+* Gabriel Clarin - gclarin@my.bcit.ca
+* Phuong Nguyen - znguyen3@my.bcit.ca
+* Semih Erguven -  semih.ergvn@gmail.com
+
+## Acknowledgements 
+* <a href="https://fonts.google.com/">Google Fonts</a>
+* <a href="https://getbootstrap.com/">Bootstrap</a>
+ 
+
+
