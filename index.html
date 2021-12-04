@@ -4,6 +4,8 @@
 <head>
   <title>Excelsior</title>
   <meta charset="utf-8" />
+
+  <!-- Custom styles for this page -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +33,10 @@
 </head>
 
 <body>
+  <!-- Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
+      <!-- Logo -->
       <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
           alt="" width="100" height="100"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -41,6 +45,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Get Reminder -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">Are you forgetting something?</a>
@@ -51,6 +56,7 @@
               </div>
             </div>
           </li>
+          <!-- Choose new reminder's voice -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">New Reminder's Voice</a>
@@ -74,6 +80,7 @@
               </div>
             </div>
           </li>
+          <!-- Calendar -->
           <li class="nav-item">
             <div class="popover__wrapper">
               <a href="#" class="popover__title">Calendar</a>
@@ -139,14 +146,45 @@
               </div>
             </div>
           </li>
+<<<<<<< HEAD
         </ul>
 
+=======
+          <!-- Create a new reminder -->
+          <li class="nav-item">
+            <div class="popover__wrapper">
+              <a href="reminder.html" class="popover__title">New Reminder</a>
+              <div class="popover__content">
+                <p class="popover__message">
+                <form action="/action_page.php">
+                  <p>Click Here To Create A New Reminder! </p>
+          </li>
+        </ul>
+        <!-- Profile picture -->
+        <div class="profile-picture">
+          <div class="popover__wrapper">
+            <a href="profile.html"><img src="images/profile_avatar_placeholder.png" id="photo"></a>
+            <div class="popover__content">
+              <p class="popover__message">
+              <form action="/action_page.php">
+                <p>Click Here To Go To Your Profile! </p>
+              </form>
+              </p>
+            </div>
+          </div>
+          <!-- Logout -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary"><a href="login.html" class="btn-primary">Logout</a></button>
+          </div>
+>>>>>>> fa2f4c30d1e046eaaf89c474a6fbde925f49046b
         </div>
       </div>
   </nav>
 
+  <!-- Confetti effect -->
   <script src="./scripts/confetti.js"></script>
 
+  <!-- Jumbotron -->
   <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png" alt="" width="300" height="300">
     <h1 class="display-5 fw-bold"></h1>
@@ -158,6 +196,7 @@
     </div>
   </div>
 
+  <!-- Click to get motivational quote -->
   <div id="overlay" onclick="off()">
     <div id="motivational-quotes"></div>
   </div>
@@ -168,6 +207,7 @@
       and you might feel better! :D</button>
   </div>
 
+  <!-- Click to get a pet -->
   <div style="padding:20px" class="px-4 py-5 my-5 text-center">
     <h2 style="font-size: 100px;">Haven't felt better?</h2>
     <button onclick="getAPet()" type="button" class="btn btn-lg px-4 gap-3" style="margin-top: 50px;">Tab
@@ -181,6 +221,7 @@
     <div id="motivational-quotes2"></div>
   </div>
 
+  <!-- A quote right on the page -->
   <div class="card-group">
     <div class="card">
       <img src="./images/running.jpg" class="card-img-top" alt="running">
@@ -192,6 +233,8 @@
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
+
+    <!-- Suggested goals -->
     <div class="card">
       <img src="./images/cooking.jpg" class="card-img-top" alt="cooking">
       <div class="card-body">
@@ -214,7 +257,14 @@
     </div>
   </div>
 
+
+  <!--------------------------------------------------------------------->
+  <!-- JS files: JavaScript functions included here    -->
+  <!--------------------------------------------------------------------->
+
   <script>
+
+    // Display quotes
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
@@ -242,6 +292,7 @@
         })
     }
 
+    // Customize voice reminders
     function createVoiceReminder() {
       let animeVoice = document.getElementById("anime").value;
       let snowwhiteVoice = document.getElementById("snow-white").value;
@@ -272,19 +323,19 @@
       });
     }
 
+    // Get a virtual pet
     function getAPet() {
       document.getElementById("get-a-pet").innerHTML = "<img src=\"https://www.pngitem.com/pimgs/m/536-5363372_kawaii-dog-inu-perro-cute-love-iloveyou-lover.png\">"
     }
 
-    // for starting the confetti
+    // For starting the confetti
     const start = () => {
       setTimeout(function () {
         confetti.start()
       }, 1000);
     };
 
-    //  for stopping the confetti 
-
+    //  For stopping the confetti 
     const stop = () => {
       setTimeout(function () {
         confetti.stop()

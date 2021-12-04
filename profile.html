@@ -4,10 +4,11 @@
 <head>
     <title>Excelsior</title>
     <meta charset="utf-8" />
+
+    <!-- Custom styles for this page -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="./styles/my_style.css" rel="stylesheet">
-
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,17 +20,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
-
-
     <!-- Link to the API keys for Excelsior Firebase -->
     <script src="scripts/firebaseAPI.js"></script>
-
 
 </head>
 
 <body>
+    <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
+            <!-- Logo -->
             <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
                     alt="" width="100" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,6 +39,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Get Reminder -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Are you forgetting something?</a>
@@ -50,6 +51,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Choose new reminder's voice -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">New Reminder's Voice</a>
@@ -74,6 +76,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Calendar -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Calendar</a>
@@ -140,27 +143,31 @@
                         </div>
                     </li>
 
+                    <!-- See your created program -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
-                          <a href="CreatedPrograms.html" class="popover__title">Programs</a>
-                          <div class="popover__content">
-                            <p class="popover__message">
-                            <form action="/action_page.php">
-                              <p>Click Here To See Your Programs </p>
-                      </li>
+                            <a href="created-programs.html" class="popover__title">Programs</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Click Here To See Your Programs </p>
+                    </li>
 
-                      <li class="nav-item">
+                    <!-- See your created reminder -->
+                    <li class="nav-item">
                         <div class="popover__wrapper">
-                            <a href="reminders.html" class="popover__title">Reminders</a>
+                            <a href="created-reminder-details.html" class="popover__title">Reminders</a>
                             <div class="popover__content">
                                 <p class="popover__message">
                                 <form action="/action_page.php">
                                     <p>Click Here To See Your Reminders </p>
                     </li>
                 </ul>
+
+                <!-- Profile picture -->
                 <div class="profile-picture">
                     <div class="popover__wrapper">
-                        <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+                        <a href="profile.html"><img src="images/profile_avatar_placeholder.png" id="photo"></a>
                         <div class="popover__content">
                             <p class="popover__message">
                             <form action="/action_page.php">
@@ -178,10 +185,11 @@
             </div>
     </nav>
 
+    <!-- See your profile page -->
     <form id="main-page">
         <h1 id="heading">PROFILE</h1>
         <div id="profile-picture">
-            <img src="images/Profile_avatar_placeholder.png" id="choosePhoto">
+            <img src="images/profile_avatar_placeholder.png" id="choosePhoto">
             <input type="file" id="file">
             <label for="file" id="uploadBtn">Choose Photo</label>
         </div>
@@ -219,8 +227,10 @@
                 </div>
             </div>
         </fieldset>
+
+        <!-- Click to go to your created program -->
         <div class="d-flex justify-content-end mt-5">
-            <a href="./CreatedPrograms.html" class="btn" type="button">Created Programs</a>
+            <a href="./created-programs.html" class="btn" type="button">Created Programs</a>
             <span style="width: 465px"></span>
             <button type="button" class="btn" onclick="editUserInfo()">Edit</button>
             <span style="width: 10px"></span>
@@ -229,11 +239,10 @@
     </form>
 
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
 
-
-
-
-    <!-- javascript starts here-->
     <script>
         function populateInfo() {
             firebase.auth().onAuthStateChanged(user => {
@@ -342,7 +351,6 @@
             }
         });
     </script>
-
 
 </body>
 

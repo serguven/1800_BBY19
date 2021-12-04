@@ -4,6 +4,8 @@
 <head>
     <title>Excelsior</title>
     <meta charset="utf-8" />
+
+    <!-- Custom styles for this page -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +32,10 @@
 </head>
 
 <body>
+    <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
+            <!-- Logo -->
             <a class="navbar-brand" href="main.html"><img class="d-block mx-auto mb-4" src="./images/Excelsior-logo.png"
                     alt="" width="100" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -41,6 +45,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Get Reminder -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Are you forgetting something?</a>
@@ -52,6 +57,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Choose new reminder's voice -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">New Reminder's Voice</a>
@@ -76,6 +82,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- Calendar -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="#" class="popover__title">Calendar</a>
@@ -141,17 +148,17 @@
                             </div>
                         </div>
                     </li>
-
+                    <!-- See your created program -->
                     <li class="nav-item">
                         <div class="popover__wrapper">
-                          <a href="CreatedPrograms.html" class="popover__title">Programs</a>
-                          <div class="popover__content">
-                            <p class="popover__message">
-                            <form action="/action_page.php">
-                              <p>Click Here To See Your Programs </p>
-                      </li>
-
-                      <li class="nav-item">
+                            <a href="created-programs.html" class="popover__title">Programs</a>
+                            <div class="popover__content">
+                                <p class="popover__message">
+                                <form action="/action_page.php">
+                                    <p>Click Here To See Your Programs </p>
+                    </li>
+                    <!-- See your created reminder -->
+                    <li class="nav-item">
                         <div class="popover__wrapper">
                             <a href="reminders.html" class="popover__title">Reminders</a>
                             <div class="popover__content">
@@ -160,10 +167,10 @@
                                     <p>Click Here To See Your Reminders </p>
                     </li>
                 </ul>
-
+                <!-- Profile picture -->
                 <div class="profile-picture">
                     <div class="popover__wrapper">
-                        <a href="profile.html"><img src="images/Profile_avatar_placeholder.png" id="photo"></a>
+                        <a href="profile.html"><img src="images/profile_avatar_placeholder.png" id="photo"></a>
                         <div class="popover__content">
                             <p class="popover__message">
                             <form action="/action_page.php">
@@ -173,6 +180,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Log out -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary"><a href="login.html"
                             class="btn-primary">Logout</a></button>
@@ -182,7 +190,7 @@
 
     </nav>
 
-
+    <!-- Create your new program -->
     <form id="createYourProgram">
         <h1 id="heading">Create your program</h1>
         <div class="row">
@@ -280,20 +288,20 @@
                     style="height:200px"></textarea>
             </div>
         </div>
-        <div class="row">
-            <button class="update" type="button" onclick="addShareProgram(); alert('Program shared')">Share</button>
-            <button class="update" type="button" onclick="createProgram(); alert('New program is created')">Create
+        <div class="row" id="buttonRow">
+            <button class="update" id="button1" type="button" onclick="addShareProgram(); alert('Program shared')">Share</button>
+            <button class="update" id="button2" type="button" onclick="createProgram(); alert('New program is created')">Create
                 Program</button>
         </div>
 
     </form>
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
 
-
-
-
-    <!--Javascript starts here-->
     <script>
+        // Check boxes
         var expanded = false;
 
         function showCheckboxes() {
@@ -307,41 +315,40 @@
             }
         }
 
-
+        // For create a new program
         function createProgram() {
             let Label = document.getElementById("labelValue").value;
             let ActivityType = document.getElementById("activity").value;
             let Goal = document.getElementById("goalValue").value;
             let StartDate = document.getElementById("startDate").value;
             let ActivityTime = document.getElementById("time").value;
-            //let Repeat = document.querySelector("list1").value;
             let ReminderVoice = document.getElementById("reminderVoice").value;
             let Notes = document.getElementById("notes").value
 
             //----------------------Repetition Values-------------------------------//
             const repetitionDays = new Array();
-            if(document.getElementById("one").checked){
+            if (document.getElementById("one").checked) {
                 repetitionDays.push("Never");
             }
-            if(document.getElementById("two").checked){
+            if (document.getElementById("two").checked) {
                 repetitionDays.push("Every Monday");
             }
-            if(document.getElementById("three").checked){
+            if (document.getElementById("three").checked) {
                 repetitionDays.push("Every Tuesday");
             }
-            if(document.getElementById("four").checked){
+            if (document.getElementById("four").checked) {
                 repetitionDays.push("Every Wednesday");
             }
-            if(document.getElementById("five").checked){
+            if (document.getElementById("five").checked) {
                 repetitionDays.push("Every Thursday");
             }
-            if(document.getElementById("six").checked){
+            if (document.getElementById("six").checked) {
                 repetitionDays.push("Every Friday");
             }
-            if(document.getElementById("seven").checked){
+            if (document.getElementById("seven").checked) {
                 repetitionDays.push("Every Saturday");
             }
-            if(document.getElementById("eight").checked){
+            if (document.getElementById("eight").checked) {
                 repetitionDays.push("Every Sunday");
             }
             //------------------------Repetition Values End--------------------------------//
@@ -376,42 +383,41 @@
             });
         }
 
-
+        // For adding shared program
         function addShareProgram() {
             let Label = document.getElementById("labelValue").value;
             let ActivityType = document.getElementById("activity").value;
             let Goal = document.getElementById("goalValue").value;
             let StartDate = document.getElementById("startDate").value;
             let ActivityTime = document.getElementById("time").value;
-            //let Repeat = document.querySelector("list1").value;
             let ReminderVoice = document.getElementById("reminderVoice").value;
             let Notes = document.getElementById("notes").value
 
-             //-------------------Repetition values----------------------------------//
+            //-------------------Repetition values----------------------------------//
             const repetitionDays = new Array();
 
-            if(document.getElementById("one").checked){
+            if (document.getElementById("one").checked) {
                 repetitionDays.push("Never");
             }
-            if(document.getElementById("two").checked){
+            if (document.getElementById("two").checked) {
                 repetitionDays.push("Every Monday");
             }
-            if(document.getElementById("three").checked){
+            if (document.getElementById("three").checked) {
                 repetitionDays.push("Every Tuesday");
             }
-            if(document.getElementById("four").checked){
+            if (document.getElementById("four").checked) {
                 repetitionDays.push("Every Wednesday");
             }
-            if(document.getElementById("five").checked){
+            if (document.getElementById("five").checked) {
                 repetitionDays.push("Every Thursday");
             }
-            if(document.getElementById("six").checked){
+            if (document.getElementById("six").checked) {
                 repetitionDays.push("Every Friday");
             }
-            if(document.getElementById("seven").checked){
+            if (document.getElementById("seven").checked) {
                 repetitionDays.push("Every Saturday");
             }
-            if(document.getElementById("eight").checked){
+            if (document.getElementById("eight").checked) {
                 repetitionDays.push("Every Sunday");
             }
             //let Repeat = repetitionDays;
@@ -447,9 +453,6 @@
             });
         }
     </script>
-
-
-
 
 </body>
 
